@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "C_Cpp.autocompleteAddParentheses": true,
+    "editor.tabSize": 2
+}
