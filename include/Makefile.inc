@@ -9,10 +9,15 @@ BEAUTIFIER_FLAGS=-c config/uncrustify.cfg --replace --no-backup
 DOC=doxygen
 DOC_FLAGS=config/Doxyfile
 
+PANDOC=pandoc
+PANDOC_FLAGS=-s --variable geometry:margin=0.75in --variable urlcolor:NavyBlue --variable colorlinks:true
+PANDOC_HIGHLIGHT=--highlight-style tango
+
 RM=rm -rf
 
 SRC_DIR := src
 OBJ_DIR := obj
+DOC_DIR := doc
 BIN_DIR := .
 TEST_TARGET=$(BIN_DIR)/test
 DEBUG_TARGET=$(BIN_DIR)/debug
@@ -26,6 +31,8 @@ test_obj := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(test_src))
 debug_src := $(patsubst %.cpp, $(SRC_DIR)/%.cpp, $(debug_src))
 debug_obj := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(debug_src))
 
+# pdf files for assignment description documentation
+assg_doc := $(patsubst %.pdf, $(DOC_DIR)/%.pdf, $(assg_doc))
 
 ## List of all valid targets in this project:
 ## ------------------------------------------
@@ -67,13 +74,23 @@ beautify :
 	$(BEAUTIFIER) $(BEAUTIFIER_FLAGS) include/*.hpp src/*.cpp
 
 
-## docs         : Create doygen reference documentation from
+## refdocs      : Create doxygen reference documentation from
 ##                doc comments.
 ##
-.PHONY : docs
-docs :
+.PHONY : refdocs
+refdocs :
 	@echo "Generating doxygen documentation..."
 	$(DOC) $(DOC_FLAGS) 2>&1 | grep -A 1 warning | egrep -v "assg.*\.md" | grep -v "Found unknown command" | grep -v "Searching for include" | sed -e "s|${PWD}/||g"
+
+
+## assgdocs     : Create assignment description documentation from
+##                README.md project markdown file.
+##
+.PHONY : assgdocs
+assgdocs : $(assg_doc)
+
+$(assg_doc) : README.md
+	${PANDOC} ${PANDOC_FLAGS} ${PANDOC_HIGHLIGHT} -o $@ $^
 
 
 ## submit       : Create a tared and compressed file of

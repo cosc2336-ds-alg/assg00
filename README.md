@@ -253,12 +253,21 @@ function.
 
 ## Task 1: Implement `isPrime()` Function
 
-Open up the `assg00-tests.cpp` file.  In this file  you will find
-two `TEST_CASE` sections that are both currently commented out.
-The first of these has a set of checks to test the `isPrime()`
-function.  Uncomment just this first `TEST_CASE`.  After uncommenting
-this test case, perform a `make build` of your code.  You should find
-that the build will fail with the following message:
+To begin with, each task should have an issue created for it in your
+GitHub repository.  Got to your GitHub repository and create a 
+new issue.  You should find that a template is available for each
+task for the assignment.  You should create the Task 1 issue now, and
+if you prefer,  you can go ahead and create the issues for all of the
+tasks before you begin working on them at this point after 
+copying your sandbox repository.
+
+Once you have the Task 1 issue created, open up the `assg00-tests.cpp`
+file.  In this file you will find two `TEST_CASE` sections that are
+both currently commented out.  The first of these has a set of checks
+to test the `isPrime()` function.  Uncomment just this first
+`TEST_CASE`.  After uncommenting this test case, perform a `make
+build` of your code.  You should find that the build will fail with
+the following message:
 
 ```
 $ make all
@@ -532,6 +541,10 @@ pass all of the tests for the `isPrime()`, the same ones that you saw
 were failind.  And also the action checks for the other function
 you will write next will be failing as well.
 
+You should also associate this pull request with the Task 1 issue that you created.
+This links issues with work being done.  It will also cause issues to be
+automatically closed when you close the pull request that links with the issue.
+
 If you have questions or need help, you can create your pull request and add
 comments onto the pull request.  The instructor will be looking at the pull
 requests students are creating for assignments, and giving feedback and
@@ -619,13 +632,15 @@ should build, and should pass the `test isPrime` tests, it will not be passing t
 
 ## Task 2: Implement findPrimes() function
 
-Lets complete this assignment.  There is still a second function that
-you need to write and pass the tests for in order to complete the
-assignment.  As with the first task, start by uncommenting the second
-`TEST_CASE` set of tests in `assg00-tests.cpp`.  You should try
-building your code now.  You will of course see that the build is now
-failing, because the tests want to run a function named `findPrimes()`
-but you haven't written it yet.
+Lets complete this assignment.  If you didn't do it already, create
+the Task 2 issue in your GitHub account before beginning work on
+Task 2.  There is still a second function that you need to write and
+pass the tests for in order to complete the assignment.  As with the
+first task, start by uncommenting the second `TEST_CASE` set of tests
+in `assg00-tests.cpp`.  You should try building your code now.  You
+will of course see that the build is now failing, because the tests
+want to run a function named `findPrimes()` but you haven't written it
+yet.
 
 As before, lets start by doing the minimal work to get the project back to a 
 compilable state.  Add a function prototype for the function again into
@@ -714,6 +729,10 @@ feedback branch.  Then once again check your pull request.  This third commit sh
 be a part of the pull request.  Notice also that the project action check will still be failing.
 But if you look carefully at the action check results, you will see that the build and `isPrime()`
 tests pass, and the `findPrimes()` tests are now running, they just are not all passing yet.
+Also if you didn't do it, make sure you associate the Task 2 with this pull request.  Normally
+it it best practice to associate each pull request with a single issue.  So in future we
+may close off and create multiple pull requests within an assignment that group one or
+more tasks.
 
 ### Complete findPrimes() Task 2
 
