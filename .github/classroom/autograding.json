@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "test successfully builds",
+      "setup": "",
+      "run": "make",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 50
+    },
+    {
+      "name": "test isPrime",
+      "setup": "make",
+      "run": "./test --list-test-names-only [isPrime] | grep . && ./test [isPrime]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 25
+    },
+    {
+      "name": "test findPrimes",
+      "setup": "make",
+      "run": "./test --list-test-names-only [findPrimes] | grep . && ./test [findPrimes]",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 25
+    }
+  ]
+}
