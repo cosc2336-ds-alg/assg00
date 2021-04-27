@@ -44,7 +44,8 @@ tasks already completed.
 1. You need to have your working class DevBox installed and be able to access
    the VSCode IDE from your system for development of class assignments.
    Go to the following URL and follow the instructions to setup and install
-   your class DevBox. https://github.com/tamuc-class/cosc2336-devbox
+   your class DevBox. 
+   [https://github.com/tamuc-class/cosc2336-devbox](https://github.com/tamuc-class/cosc2336-devbox)
    There is a video link on the README that walks you through installing and
    setting up the development environment.
 2. You will need to create a GitHub account if you do not already have one.
@@ -52,7 +53,7 @@ tasks already completed.
    keep using this account in the future, so use your most useful e-mail address
    (doesn't necessarily need to be your TAMUC e-mail address).  Also select a
    good username, and consider configuring your GitHub bio, icon and other properties.
-   https://github.com/
+   [https://github.com/](https://github.com/)
 3. A ssh public/private key will be created for you to use in your class DevBox.
    Open up the file name `/home/vagrant/.ssh/id_ed25519.pub`.  You need
    to add this public key to your GitHub account.  Login to GitHub, navigate to 
@@ -74,7 +75,7 @@ practice assignment 00.  For all of our class assignments, you will first need
 to clone a repository I will give you from GitHub classrooms.  I need to give you
 an invitation like. The following is the invitation link to use:
 
-- Assg 00 (Summer 2021): https://classroom.github.com/a/v5HS6F1S
+- Assg 00 (Summer 2021): [https://classroom.github.com/a/v5HS6F1S](https://classroom.github.com/a/v5HS6F1S)
 
 By following that link, you will be taken to GitHub, where you will be asked to
 accept the assignment.  If this is the first assignment you are accepting, you need
@@ -464,14 +465,14 @@ to add all of these 3 file changes to the commit you are creating.  Once the
 files are added to the commit, write a commit message and then select
 the checkmark to commit these changes to your current `feedback` branch.
 Try and always use good commit messages.  Read the following:
-https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project
+[Git Commit Messages Guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
 
 Here is an example following the guidelines for this commit
 
 ```
-Task 1 isPrime() compiling and running tests
+Task 1 isPrime() compiling and running tests for issue #1
 
-Partial implementation of Task 1 to write the isPrime() function.
+Partial implementation of Task 1 issue #1 to write the isPrime() function.
 Code is compiling and running a stub function.  Stub function
 always returns true, so passes all tests where tester is expecting
 the answer to be true for a given value.
@@ -807,3 +808,18 @@ the following style/formatting issues will be required for programs for this cla
    information has your correct name, dates, and other information.
 6. Practice using proper Git commit messages.  You should refer to 
    issues and tasks correctly in commit messages.
+
+# Additional Information
+
+The following are suggested online materials you may use to help you understand
+the tools and topics we have introduced in this assignment.
+
+- [Git Tutorials](https://git-scm.com/doc)
+- [Git User Manual](https://git-scm.com/docs/user-manual)
+- [Git Commit Messages Guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
+- [Test-driven Development and Unit Testing Concepts](http://alexott.net/en/cpp/CppTestingIntro.html)
+- [Catch2 Unit Test Tutorial](https://github.com/catchorg/Catch2/blob/devel/docs/tutorial.md)
+- [Getting Started with Visual Studio Code](https://code.visualstudio.com/docs/introvideos/basics)
+- [Visual Studio Code Documentation and User Guide](https://code.visualstudio.com/docs)
+- [Make Build System Tutorial](https://makefiletutorial.com/)
+- [Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax/)
