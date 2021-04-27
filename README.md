@@ -74,7 +74,7 @@ practice assignment 00.  For all of our class assignments, you will first need
 to clone a repository I will give you from GitHub classrooms.  I need to give you
 an invitation like. The following is the invitation link to use:
 
-- Assg 00 (Summer 2021): https://classroom.github.com/a/dURspxBr
+- Assg 00 (Summer 2021): https://classroom.github.com/a/v5HS6F1S
 
 By following that link, you will be taken to GitHub, where you will be asked to
 accept the assignment.  If this is the first assignment you are accepting, you need
