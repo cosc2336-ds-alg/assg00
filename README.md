@@ -107,7 +107,7 @@ You should clone this and all assignments into your `~/sync/assg`
 directory.  This will allow you to be able to access the files on your host
 system as well.
 
-## Checkout the Feedback branch
+## Checkout the Feedback branch and Configure Git
 
 Once the repository is cloned, you should make sure that you switch to the
 `feedback` branch of your repository, which should already be created for you.
@@ -117,14 +117,34 @@ source control section, open the `...` additional actions and select
 checked out this branch, you should see that `feedback` is your working
 branch on the bottom status bar of your VSCode window.
 
+In addition, this is a good time to do some global 
+[first-time git configuration](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
+In order to make commits to git repositories, you have to set a name and e-mail address in each
+local system you are using.  You should only have to do the following 1 time on
+your class DevBox, these configuration are global for all git repositories on
+a machine.
+
+Open up a terminal and perform the following commands from a command line.
+
+```
+git config --global user.name "Jane Programmer"
+git config --global user.email "janeprogrammer@example.com"
+```
+
+You should of course replace with your own name here.  You should use the
+same e-mail that you used to set up and verify your GitHub account here.
+The primary e-mail will be used when you push a change to your repository to
+connect the commit to your GitHub user account.
+
 ## Practice Assignment 00 Ready 
 
 At this point you should be ready to begin working on the practice Assignment 00.
 For all of the assignments for this class you will follow the same steps
-in the previous section when you get started.
+in the previous section(s) when you get started on a new assignment.
 
-1. Copy the assignment repository on GitHub using the provided invitation link.
-2. Clone the repository using SSH url to your local class DevBox
+1. Copy the assignment repository on GitHub using the provided invitation link for our
+   class semester and section.
+2. Clone the repository using the SSH url to your local class DevBox
 3. Checkout the `origins/feedback` branch of to your local working repository.
 
 At this point for each assignment, you will be ready to begin reading the
@@ -311,7 +331,7 @@ together the code, there is an implementation that can be called to compute the
 So lets add in the implementation.  In the `assg00-functions.cpp` file, add in the
 following stub implementation.
 
-```
+```c++
 /** isPrime
  * Determine if a given (positive) integer value >= 1 is prime.
  * Prime numbers are numbers that are divisible only by 1 and
@@ -460,9 +480,9 @@ to the `feedback` branch, make a commit, and push the commit to your
 repository.
 
 Open the Git section in VSCode.  You will see that the 3 files you modified
-are now listed as changed in your repository.  Perform an `add all` changes
+are now listed as changed in your repository.  Perform a `stage all changes`
 to add all of these 3 file changes to the commit you are creating.  Once the
-files are added to the commit, write a commit message and then select
+files are staged for the commit, write a commit message and then select
 the checkmark to commit these changes to your current `feedback` branch.
 Try and always use good commit messages.  Read the following:
 [Git Commit Messages Guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
@@ -470,9 +490,9 @@ Try and always use good commit messages.  Read the following:
 Here is an example following the guidelines for this commit
 
 ```
-Task 1 isPrime() compiling and running tests for issue #1
+Task 1 isPrime() compiling and running tests
 
-Partial implementation of Task 1 issue #1 to write the isPrime() function.
+Partial implementation of Task 1 to write the isPrime() function.
 Code is compiling and running a stub function.  Stub function
 always returns true, so passes all tests where tester is expecting
 the answer to be true for a given value.
@@ -506,10 +526,11 @@ is one location in GitHub that you can create a pull request from.  Create
 the pull request for the changes on this first commit you made.
 
 At this point you should see that you have 1 open pull request.  If you go
-to this request, you will see that the build status for this commit failed.
-If you look in there, you will see that the commit does build, but it fails to
-pass all of the tests for the `isPrime()` and also for the other function
-you will write next.
+to this request, you will see that the GitHub action checks for this commit failed.
+If you look at the Details of the checks, you will see that the commit does build, but it fails to
+pass all of the tests for the `isPrime()`, the same ones that you saw
+were failind.  And also the action checks for the other function
+you will write next will be failing as well.
 
 If you have questions or need help, you can create your pull request and add
 comments onto the pull request.  The instructor will be looking at the pull
@@ -522,7 +543,7 @@ At this point lets create a correct implementation of the `isPrime()`
 function that will pass the unit tests.  Modify your `isPrime()` function
 to look like the following.
 
-```
+```c++
 /** isPrime
  * Determine if a given (positive) integer value >= 1 is prime.
  * Prime numbers are numbers that are divisible only by 1 and
@@ -598,11 +619,13 @@ should build, and should pass the `test isPrime` tests, it will not be passing t
 
 ## Task 2: Implement findPrimes() function
 
-Lets complete this assignment.  There is still a second function that you need to write
-and pass the tests.  As with the first task, start by uncommenting the second
-`TEST_CASE` set of tests in `assg00-tests.cpp`.  You should try building your
-code now.  You will of course see that the build is now failing, because the tests
-want to run a function named `findPrimes()` but you haven't written it yet.
+Lets complete this assignment.  There is still a second function that
+you need to write and pass the tests for in order to complete the
+assignment.  As with the first task, start by uncommenting the second
+`TEST_CASE` set of tests in `assg00-tests.cpp`.  You should try
+building your code now.  You will of course see that the build is now
+failing, because the tests want to run a function named `findPrimes()`
+but you haven't written it yet.
 
 As before, lets start by doing the minimal work to get the project back to a 
 compilable state.  Add a function prototype for the function again into
@@ -620,7 +643,7 @@ And as before, lets just add a stub implementation so we can get things building
 The `findPrimes()` function is supposed to be returning the number of primes it finds.
 Lets just start by returning 9 (which is what the first test in our test cases is expecting).
 
-```
+```c++
 /** findPrimes
  * Find primes in a range of values from start to end (inclusive).
  * This function returns a count of the number of primes found within
@@ -649,11 +672,47 @@ Now if you rebuild, the program should compile.  If you run your tests, you shou
 that the tests run.  All of the tests in the first test case should still be passing.  But
 it will be failing some of the tests in the second test case.
 
+```
+> Executing task: make run <
+
+././test --use-colour yes
+
+-------------------------------------------------------------------------------
+test is a Catch v2.12.2 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+<findPrimes()> function tests
+-------------------------------------------------------------------------------
+src/assg00-tests.cpp:71
+
+
+src/assg00-tests.cpp:79: FAILED:
+  CHECK( findPrimes(1, 1000, false) == 169 )
+with expansion:
+  9 == 169
+
+src/assg00-tests.cpp:84: FAILED:
+  CHECK( findPrimes(100000, 150000, false) == 4256 )
+with expansion:
+  9 == 4256 (0x10a0)
+
+===============================================================================
+test cases:  2 |  1 passed | 1 failed
+assertions: 27 | 25 passed | 2 failed
+
+make: *** [include/Makefile.inc:60: run] Error 2
+The terminal process "/bin/bash '-c', 'make run'" failed to launch (exit code: 2).
+
+Terminal will be reused by tasks, press any key to close it.
+
+```
+
 For practice, you should create a new commit and commit it to your local repository again.
 Don't forget to craft an appropriate commit message.  Then push this commit to your
 feedback branch.  Then once again check your pull request.  This third commit should now
-be a part of the pull request.  Notice also that the build status should still be failing.
-But if you look carefully at the build task results, you will see that the build and `isPrime()`
+be a part of the pull request.  Notice also that the project action check will still be failing.
+But if you look carefully at the action check results, you will see that the build and `isPrime()`
 tests pass, and the `findPrimes()` tests are now running, they just are not all passing yet.
 
 ### Complete findPrimes() Task 2
@@ -664,7 +723,7 @@ all primes in the given range, and return the count of the number of primes it f
 within the range.  Modify your implementation of `findPrimes()` with the following
 code.
 
-```
+```c++
 /** findPrimes
  * Find primes in a range of values from start to end (inclusive).
  * This function returns a count of the number of primes found within
