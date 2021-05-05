@@ -81,7 +81,7 @@ practice 'Assignment Example'.  For all of our class assignments, you will first
 to clone a repository I will give you from GitHub classrooms.  I need to give you
 an invitation like. The following is the invitation link to use:
 
-- Assg Example (Summer 2021): [https://classroom.github.com/a/v5HS6F1S](https://classroom.github.com/a/v5HS6F1S)
+- Assg Example (Summer 2021): [https://classroom.github.com/g/lbasqRav](https://classroom.github.com/g/lbasqRav)
 
 By following that link, you will be taken to GitHub, where you will be asked to
 accept the assignment.  If this is the first assignment you are accepting, you need
@@ -133,7 +133,7 @@ terminal is open, change into the repository you just cloned, and
 run the configuration script, for example:
 
 ```
-$ cd repos/assg00
+$ cd sync/assg/assg00
 $ ./configure
 ```
 
