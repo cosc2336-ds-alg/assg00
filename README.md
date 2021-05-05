@@ -133,7 +133,7 @@ terminal is open, change into the repository you just cloned, and
 run the configuration script, for example:
 
 ```
-$ cd sync/assg/assg00
+$ cd sync/assg/assg00-name
 $ ./configure
 ```
 
@@ -232,7 +232,7 @@ or addition you make, that you code still compiles and runs the given tests.
 Before starting on the tasks below, confirm that your starting code
 is compiling and running.  From your VSCode DevBox, open the `assg00`
 folder if it is not currently open.  Then perform a 
-`make clean / make all / make run`.
+`make clean / make all / make tests`.
 You can use VSCode command palate to perform the `Run Task` command, and
 slelect these tasks from the command palette.  Keyboard shortcuts should
 already be assigned to these common tasks, so you could do them as
@@ -259,9 +259,9 @@ g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-main.cpp -o obj/assg-main.o
 g++ -Wall -Werror -pedantic -g  obj/assg-main.o  obj/assg-functions.o -o debug
 
 ```
-- `ctrl-shift-3` make run
+- `ctrl-shift-3` make tests
 ```
-> Executing task: make run <
+> Executing task: make tests <
 
 ././test --use-colour yes
 ===============================================================================
@@ -269,7 +269,7 @@ No tests ran
 ```
 
 The project should compile cleanly with no erors when you do the `make build`, and
-the tests should run from `make run`, though all tests are currently commented
+the tests should run from `make tests`, though all tests are currently commented
 out, so there are not actual tests available to run yet.
 
 
@@ -421,7 +421,7 @@ Always make sure your program is in a compilable state.  If it can compile the `
 we can run the unit tests, and see how well our implementation is working so far.
 
 ```
-$ make run
+$ make tests
 ././test --use-colour yes
 
 
@@ -503,7 +503,7 @@ with expansion:
 test cases:  1 |  0 passed |  1 failed
 assertions: 24 | 11 passed | 13 failed
 
-make: *** [include/Makefile.inc:60: run] Error 13
+make: *** [include/Makefile.inc:60: tests] Error 13
 
 ```
 
@@ -649,7 +649,7 @@ g++ -Wall -Werror -pedantic -g  obj/tests-main.o  obj/assg-tests.o  obj/assg-fun
 g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-main.cpp -o obj/assg-main.o
 g++ -Wall -Werror -pedantic -g  obj/assg-main.o  obj/assg-functions.o -o debug
 
-$ make run
+$ make tests
 ././test --use-colour yes
 ===============================================================================
 All tests passed (24 assertions in 1 test case)
@@ -724,7 +724,7 @@ that the tests run.  All of the tests in the first test case should still be pas
 it will be failing some of the tests in the second test case.
 
 ```
-> Executing task: make run <
+> Executing task: make tests <
 
 ././test --use-colour yes
 
@@ -752,8 +752,8 @@ with expansion:
 test cases:  2 |  1 passed | 1 failed
 assertions: 27 | 25 passed | 2 failed
 
-make: *** [include/Makefile.inc:60: run] Error 2
-The terminal process "/bin/bash '-c', 'make run'" failed to launch (exit code: 2).
+make: *** [include/Makefile.inc:60: tests] Error 2
+The terminal process "/bin/bash '-c', 'make tests'" failed to launch (exit code: 2).
 
 Terminal will be reused by tasks, press any key to close it.
 
