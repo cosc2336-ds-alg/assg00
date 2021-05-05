@@ -1,21 +1,21 @@
-/** @file assg00-main.cpp
- * @brief main/debug executable for Assignment 00, practice class workflow.
+/** @file assg-main.cpp
+ * @brief main/debug executable for Assignment Example, practice class workflow.
  *
  * @author Jane Programmer
  * @note   cwid : 123 45 678
  * @note   class: COSC 2336, Summer 2021
  * @note   ide  : VS Code Server 3.9.3
- * @note   assg : Assignment 00
+ * @note   assg : Assignment Example
  * @date   June 1, 2021
  *
- * Assignment 00, example Workflow for Assignments and gettingGit and
+ * Assignment Example, example Workflow for Assignments and gettingGit and
  * GitHub and VSCode setup.  This file contains a separate main()
  * function and is meant to be compiled to a separate executable to be
  * used for debugging or testing.
  */
 #include <cmath>
 #include <iostream>
-#include "assg00-functions.hpp"
+#include "assg-functions.hpp"
 using namespace std;
 
 

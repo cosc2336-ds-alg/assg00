@@ -1,8 +1,9 @@
 # source files in this project 
-PROJECT_NAME=assg00
+VERSION=0.3
+BASE_DIR := ../assg-base-$(VERSION)
+PROJECT_NAME=assg
 
-test_src  = tests-main.cpp \
-	    $(PROJECT_NAME)-tests.cpp \
+test_src  = $(PROJECT_NAME)-tests.cpp \
 	    $(PROJECT_NAME)-functions.cpp
 debug_src = $(PROJECT_NAME)-main.cpp \
 	    $(PROJECT_NAME)-functions.cpp
@@ -15,4 +16,4 @@ template_files =
 assg_doc  = ${PROJECT_NAME}.pdf
 
 # common targets and variables used for all assignments/projects
-include include/Makefile.inc
+include $(BASE_DIR)/include/Makefile.inc

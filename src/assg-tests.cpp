@@ -1,13 +1,13 @@
-/** @file assg00-tests.cpp
- * @brief Unit tests for Assignment 00, practice class workflow.
+/** @file assg-tests.cpp
+ * @brief Unit tests for Assignment Example, practice class workflow.
  *
  * @author Derek Harter
  * @note   class: COSC 2336, Summer 2021
  * @note   ide  : VS Code Server 3.9.3
- * @note   assg : Assignment 00
+ * @note   assg : Assignment Example
  * @date   June 1, 2021
  *
- * Assignment 00, example Workflow for Assignments and getting Git and
+ * Assignment Example, example Workflow for Assignments and getting Git and
  * GitHub and VSCode setup.  This is the file containing the unit
  * tests for this assignment.  It uses the catch2 unit test
  * framework. You should start by definint the calculateMean()
@@ -20,7 +20,7 @@
 #include <cmath>
 #include <iostream>
 #include "catch.hpp"
-#include "assg00-functions.hpp"
+#include "assg-functions.hpp"
 using namespace std;
 
 /** isPrime() test cases
@@ -64,7 +64,7 @@ using namespace std;
    CHECK_FALSE(isPrime(101007) );
    CHECK_FALSE(isPrime(101831) );
    }
-*/
+ */
 
 /** findPrimes() test cases
  * Uncomment the following test case block and write your code

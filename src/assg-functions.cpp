@@ -1,14 +1,14 @@
-/** @file assg00-functions.cpp
- * @brief Implementation file for Assignment 00 practice class workflow.
+/** @file assg-functions.cpp
+ * @brief Implementation file for Assignment Example practice class workflow.
  *
  * @author Jane Programmer
  * @note   cwid : 123 45 678
  * @note   class: COSC 2336, Summer 2021
  * @note   ide  : VS Code Server 3.9.3
- * @note   assg : Assignment 00
+ * @note   assg : Assignment Example
  * @date   June 1, 2021
  *
- * Assignment 00, example Workflow for Assignments and getting Git and
+ * Assignment Example, example Workflow for Assignments and getting Git and
  * GitHub and VSCode setup.  This is the file where you should
  * implement the functions that are dscribed in this practice exercise.
  */
