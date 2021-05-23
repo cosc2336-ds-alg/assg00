@@ -1,5 +1,6 @@
-/** @file assg-functions.cpp
- * @brief Implementation file for Assignment Example practice class workflow.
+/** @file primes.cpp
+ * @brief Implementation file for Assignment Primes: Practice Example
+ *   and Class Workflow
  *
  * @author Jane Programmer
  * @note   cwid : 123 45 678
@@ -8,9 +9,10 @@
  * @note   assg : Assignment Example
  * @date   June 1, 2021
  *
- * Assignment Example, example Workflow for Assignments and getting Git and
- * GitHub and VSCode setup.  This is the file where you should
- * implement the functions that are dscribed in this practice exercise.
+ * Assignment Primes: example Workflow for Assignments and getting
+ * Git and GitHub and VSCode setup.  This is the file where you should
+ * implement the functions that are dscribed in this practice
+ * exercise.
  */
 #include <iostream>
 #include <cmath>
@@ -32,6 +34,7 @@ using namespace std;
  *   is not.
  */
 // write your implementation if isPrime() function here
+
 
 /** findPrimes
  * Find primes in a range of values from start to end (inclusive).

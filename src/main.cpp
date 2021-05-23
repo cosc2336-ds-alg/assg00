@@ -1,5 +1,6 @@
-/** @file assg-main.cpp
- * @brief main/debug executable for Assignment Example, practice class workflow.
+/** @file main.cpp
+ * @brief main/debug executable for Assignment Primes: Practice Example
+ *   and Class Workflow
  *
  * @author Jane Programmer
  * @note   cwid : 123 45 678
@@ -15,7 +16,7 @@
  */
 #include <cmath>
 #include <iostream>
-#include "assg-functions.hpp"
+#include "primes.hpp"
 using namespace std;
 
 
@@ -33,6 +34,9 @@ using namespace std;
  */
 int main(int argc, char** argv)
 {
+  // do something here to test/debug the assignment code
+  cout << "Hello Assignment Primes" << endl;
+
   /*
      bool res;
      res = isPrime(4);

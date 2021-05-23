@@ -1,5 +1,5 @@
-/** @file assg-functions.hpp
- * @brief Header file for Assignment Example practice class workflow.
+/** @file primes.hpp
+ * @brief Header file for Assignment Primes: Practice Example and Class Workflow.
  *
  * @author Jane Programmer
  * @note   cwid : 123 45 678

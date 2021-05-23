@@ -3,10 +3,14 @@ VERSION=0.3
 BASE_DIR := ../assg-base-$(VERSION)
 PROJECT_NAME=assg
 
-test_src  = $(PROJECT_NAME)-tests.cpp \
-	    $(PROJECT_NAME)-functions.cpp
-debug_src = $(PROJECT_NAME)-main.cpp \
-	    $(PROJECT_NAME)-functions.cpp
+assg_src = primes.cpp
+
+test_src  = test-primes.cpp \
+	    ${assg_src}
+
+debug_src = main.cpp \
+	    ${assg_src}
+
 # template files, list all files that define template classes
 # or functions and should not be compiled separately (template
 # is included where used)

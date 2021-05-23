@@ -1,7 +1,7 @@
 ---
-name: 'Task 2: Implement ''findPrimes()'' Function'
+name: 'Task 2: Implement `findPrimes()` Function'
 about: Task 2 for Students
-title: 'Task 2: Implement ''findPrimes()'' Function'
+title: 'Task 2: Implement `findPrimes()` Function'
 labels: enhancement
 assignees: ''
 
@@ -19,5 +19,5 @@ The method is a simple loop, then, that searches all values in the given range, 
 
 **Additional Requirements**
 
-- [ ] You are required to reuse your implementation of the `isPrime()` function when implementing the `findPrimes()` method.
-- [ ] The indicated range should be inclusive of both the begin and end values of the range.  E.g. if asked to start at 2 and stop at 5, both 2 and 5 are prime numbers, thus you would return a count of 3, because 2, 3 and 5 are the 3 primes that are in the inclusive range from 2 to 5.
+- You are required to reuse your implementation of the `isPrime()` function when implementing the `findPrimes()` method.
+- The indicated range should be inclusive of both the begin and end values of the range.  E.g. if asked to start at 2 and stop at 5, both 2 and 5 are prime numbers, thus you would return a count of 3, because 2, 3 and 5 are the 3 primes that are in the inclusive range from 2 to 5.

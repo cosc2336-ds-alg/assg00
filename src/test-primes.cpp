@@ -1,5 +1,6 @@
-/** @file assg-tests.cpp
- * @brief Unit tests for Assignment Example, practice class workflow.
+/** @file test-primes.cpp
+ * @brief Unit tests for Assignment Primes: Practice Example
+ *   and Class Workflow.
  *
  * @author Derek Harter
  * @note   class: COSC 2336, Summer 2021
@@ -7,8 +8,8 @@
  * @note   assg : Assignment Example
  * @date   June 1, 2021
  *
- * Assignment Example, example Workflow for Assignments and getting Git and
- * GitHub and VSCode setup.  This is the file containing the unit
+ * Assignment Primes: example Workflow for Assignments and getting Git
+ * and GitHub and VSCode setup.  This is the file containing the unit
  * tests for this assignment.  It uses the catch2 unit test
  * framework. You should start by definint the calculateMean()
  * function to return a result of 0.  Then incrementally code so that
@@ -20,7 +21,7 @@
 #include <cmath>
 #include <iostream>
 #include "catch.hpp"
-#include "assg-functions.hpp"
+#include "primes.hpp"
 using namespace std;
 
 /** isPrime() test cases
@@ -28,7 +29,7 @@ using namespace std;
  * to pass these tests for the isPrime() function.
  */
 /*
-   TEST_CASE("<isPrime()> function tests", "[isPrime]")
+   TEST_CASE("<isPrime()> function tests", "[task1]")
    {
    // 1, 2 and 3 are all primes
    CHECK(isPrime(1));
@@ -66,12 +67,13 @@ using namespace std;
    }
  */
 
+
 /** findPrimes() test cases
  * Uncomment the following test case block and write your code
  * to pass these tests for the findPrimes() function.
  */
 /*
-   TEST_CASE("<findPrimes()> function tests", "[findPrimes]")
+   TEST_CASE("<findPrimes()> function tests", "[task2]")
    {
    // we know in range from 1 to 20 there are 9 prime numbers
    // 1, 2, 3, 5, 7, 11, 13, 17, 19

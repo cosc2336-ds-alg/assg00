@@ -4,14 +4,13 @@ author: 'COSC 2336: Data Structures and Algorithms'
 date: 'Summer 2021'
 ---
 
-
 # Objectives
 - Setup and explore your VSCode DevBox Environment
 - Learn some basic Git commands and workflow
 - Practice submitting an example class project
-- Make sure clas GitHub accounts are configured for git pushes and pull requests.
+- Make sure class GitHub accounts are configured for git pushes and pull requests.
 - Make sure VSCode development IDE is configured properly for C++ projects
-- Learn about unit testing framework used for class asignments.
+- Learn about unit testing framework used for class assignment's.
 
 # Description
 
@@ -24,14 +23,14 @@ practice, so that you are ready for the actual class assignments.  The tools
 we will be using for this class include:
 
 - Visual Code studio IDE for code editing, building and debugging
-- Basic Git usage, and using GitHub repositories for commiting work and pull requests.
+- Basic Git usage, and using GitHub repositories for committing work and pull requests.
 - Unit test frameworks, we use the Catch2 unit test framework for our C++ coding
   assignments.
   
 This practice assignment will walk you through the basic procedures and
 setup of assignments for our class assignments.  Videos of the instructor
 doing all of the tasks of this practice can be found at the bottom of this
-readme, as well as additional suggested sources for learning the basics about
+README, as well as additional suggested sources for learning the basics about
 the tools we will be using.
 
 # Pre-Setup and Configuration
@@ -65,7 +64,7 @@ tasks already completed.
    Public Git Key`.
 4. There is one VSCode extension that you will need to install by hand
    in your class DevBox VSCode environment.  It was downloaded but can
-   not be autoinstalled for you.  From your class DevBox VSCode
+   not be auto installed for you.  From your class DevBox VSCode
    code-server open up your `Extensions` (left sidebar).  Click on the
    `...` at the top of the extensions for additional tasks and select
    `Install from VSIX`.  There should be a file named
@@ -79,7 +78,7 @@ tasks already completed.
 Once you have completed these tasks, you are ready to begin working on the
 practice 'Assignment Example'.  For all of our class assignments, you will first need
 to clone a repository I will give you from GitHub classrooms.  I need to give you
-an invitation like. The following is the invitation link to use:
+an invitation link. The following is the invitation link to use:
 
 - Assg Example (Summer 2021): [https://classroom.github.com/g/lbasqRav](https://classroom.github.com/g/lbasqRav)
 
@@ -99,8 +98,8 @@ that you can work on it.
 
 In your class DevBox, open the Git section.  Select the `Clone
 Repository` button to clone your repository.  You need to copy/paste
-your GitHub ssh url into your DevBox to clone the repository.  You
-find your GitHub url by opening your repository on GitHub, navigating
+your GitHub ssh URL into your DevBox to clone the repository.  You
+find your GitHub URL by opening your repository on GitHub, navigating
 to `Code`, and pulling down the `Code` download button.  Make sure
 that you clone using ssh, not https.  If you clone using ssh you will
 not be able to push your changes back to the repository.  If you get
@@ -179,7 +178,7 @@ in the previous section(s) when you get started on a new assignment.
 
 1. Copy the assignment repository on GitHub using the provided invitation link for our
    class semester and section.
-2. Clone the repository using the SSH url to your local class DevBox
+2. Clone the repository using the SSH URL to your local class DevBox
 3. Configure the assignment using the `configure` script.
 4. Checkout the `origins/feedback` branch to your local working repository.
 
@@ -197,15 +196,12 @@ assignment, and an overview of the assignment tasks.
 
 For this practice assignment you have been given the following files (among many others):
 
-| File Name                      | Description                         |
-|--------------------------------|-------------------------------------|
-| `src/assg-tests.cpp`         | Unit tests for the two functions    |
-|                                | you are to write.                   |
-| `include/assg-functions.hpp` | Header file for function prototypes |
-|                                | you are to add.                     |
-| `src/assg-functions.cpp`     | Implementation file for the         |
-|                                | functions you are to write for      |
-|                                | this assignment.                    |
+| File Name             | Description                                                                 |
+|-----------------------|-----------------------------------------------------------------------------|
+| `src/test-primes.cpp` | Unit tests for the two functions  you are to write.                         |
+| `include/primes.hpp`  | Header file for function prototypes you are to add.                         |
+| `src/primes.cpp`      | Implementation file for the functions you are to write for this assignment. |
+
 
 All assignments for this class are in the form of multi-file projects.
 All source files will be in the `src` subdirectory, and all header files
@@ -219,9 +215,9 @@ repository.  This commit task will run the same tests that you have
 in your assignment, and that you need to get working for the assignment.
 
 For this practice assignment, you will need to add codes into two files,
-named `assg-functions.hpp` and `assg-functions.cpp`.  In addition,
+named `primes.hpp` and `primes.cpp`.  In addition,
 the unit tests you need to pass for the practice assignment are given to
-you in `assg-tests.cpp`.  Some or all of these tests will be
+you in `test-primes.cpp`.  Some or all of these tests will be
 commented out to begin with.  You will uncomment the tests and write the
 code to get the tests to pass as the main work for each assignment.
 
@@ -234,7 +230,7 @@ is compiling and running.  From your VSCode DevBox, open the `assg00`
 folder if it is not currently open.  Then perform a 
 `make clean / make all / make tests`.
 You can use VSCode command palate to perform the `Run Task` command, and
-slelect these tasks from the command palette.  Keyboard shortcuts should
+select these tasks from the command palette.  Keyboard shortcuts should
 already be assigned to these common tasks, so you could do them as
 follows
 
@@ -251,13 +247,11 @@ rm -rf obj
 > Executing task: make all <
 
 mkdir -p obj
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/tests-main.cpp -o obj/tests-main.o
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-tests.cpp -o obj/assg-tests.o
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-functions.cpp -o obj/assg-functions.o
-g++ -Wall -Werror -pedantic -g  obj/tests-main.o  obj/assg-tests.o  obj/assg-functions.o -o test
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-main.cpp -o obj/assg-main.o
-g++ -Wall -Werror -pedantic -g  obj/assg-main.o  obj/assg-functions.o -o debug
-
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/test-primes.cpp -o obj/test-primes.o
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/main.cpp -o obj/main.o
+g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
 ```
 - `ctrl-shift-3` make tests
 ```
@@ -268,7 +262,7 @@ g++ -Wall -Werror -pedantic -g  obj/assg-main.o  obj/assg-functions.o -o debug
 No tests ran
 ```
 
-The project should compile cleanly with no erors when you do the `make build`, and
+The project should compile cleanly with no errors when you do the `make build`, and
 the tests should run from `make tests`, though all tests are currently commented
 out, so there are not actual tests available to run yet.
 
@@ -297,7 +291,7 @@ if you prefer,  you can go ahead and create the issues for all of the
 tasks before you begin working on them at this point after 
 copying your sandbox repository.
 
-Once you have the Task 1 issue created, open up the `assg-tests.cpp`
+Once you have the Task 1 issue created, open up the `test-primes.cpp`
 file.  In this file you will find two `TEST_CASE` sections that are
 both currently commented out.  The first of these has a set of checks
 to test the `isPrime()` function.  Uncomment just this first
@@ -308,30 +302,30 @@ the following message:
 ```
 $ make all
 
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-tests.cpp -o obj/assg-tests.o
-In file included from src/assg-tests.cpp:22:
-src/assg-tests.cpp: In function ‘void ____C_A_T_C_H____T_E_S_T____0()’:
-src/assg-tests.cpp:33:10: error: ‘isPrime’ was not declared in this scope
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/test-primes.cpp -o obj/test-primes.o
+In file included from src/test-primes.cpp:22:
+src/test-primes.cpp: In function ‘void ____C_A_T_C_H____T_E_S_T____0()’:
+src/test-primes.cpp:33:10: error: ‘isPrime’ was not declared in this scope
    33 |    CHECK(isPrime(1) );
       |          ^~~~~~~
-In file included from src/assg-tests.cpp:22:
-src/assg-tests.cpp:33:10: error: ‘isPrime’ was not declared in this scope
+In file included from src/test-primes.cpp:22:
+src/test-primes.cpp:33:10: error: ‘isPrime’ was not declared in this scope
    33 |    CHECK(isPrime(1) );
       |          ^~~~~~~
-make: *** [include/Makefile.inc:51: obj/assg-tests.o] Error 1
+make: *** [include/Makefile.inc:51: obj/test-primes.o] Error 1
 ```
 
-What is happenning here is that these tests are trying to test the implementation
+What is happening here is that these tests are trying to test the implementation
 of an `isPrime()` function, but there is no implementation yet of this function.
 You are going to implement this function.  Lets start by creating a stub for the
 function, so that we can get our code to compile and run correctly.
 
-We need to put a function prototype for this function into the `assg-functions.hpp`
+We need to put a function prototype for this function into the `primes.hpp`
 header file.  A function prototype can be used in a header file so that we can include
 the header, and the compiler will then know what the signature of the function is and can thus
 figure out how to compile code that wants to call this function.
 
-In `assg-functions.hpp` at the appropriate place, add the following function
+In `primes.hpp` at the appropriate place, add the following function
 signature:
 
 ```
@@ -348,23 +342,28 @@ program again.
 ```
 $ make all 
 
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-tests.cpp -o obj/assg-tests.o
-g++ -Wall -Werror -pedantic -g  obj/tests-main.o  obj/assg-tests.o  obj/assg-functions.o -o test
-/usr/bin/ld: obj/assg-tests.o: in function `____C_A_T_C_H____T_E_S_T____0()':
-/home/dash/repos/cosc2336-github-classroom/assg00/src/assg-tests.cpp:33: undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/assg-tests.cpp:34: undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/assg-tests.cpp:35: undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/assg-tests.cpp:38: undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/assg-tests.cpp:41: undefined reference to `isPrime(int)'
-/usr/bin/ld: obj/assg-tests.o:/home/dash/repos/cosc2336-github-classroom/assg/src/assg-tests.cpp:42: more undefined references to `isPrime(int)' follow
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/test-primes.cpp -o obj/test-primes.o
+/usr/bin/ld: obj/test-primes.o: in function `____C_A_T_C_H____T_E_S_T____0()':
+/home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:33: 
+    undefined reference to `isPrime(int)'
+/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:34: 
+    undefined reference to `isPrime(int)'
+/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:35: 
+    undefined reference to `isPrime(int)'
+/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:38: 
+    undefined reference to `isPrime(int)'
+/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:41: 
+    undefined reference to `isPrime(int)'
+/usr/bin/ld: obj/test-primes.o:/home/dash/repos/cosc2336-github-classroom/assg/src/test-primes.cpp:42: 
+    more undefined references to `isPrime(int)' follow
 collect2: error: ld returned 1 exit status
 make: *** [include/Makefile.inc:42: test] Error 1
 ```
 
 The output of the compilation is a bit complex here, but you should take a moment to look at it.
-The `assg-tests.cpp` file actually compiles successfully now.  This is because it includes
-the signature you added from `assg-functions.hpp` header file, and so the `c++` compiler
-knows how to compile the test into an object file named `assg-tests.o`. 
+The `test-primes.cpp` file actually compiles successfully now.  This is because it includes
+the signature you added from `primes.hpp` header file, and so the `c++` compiler
+knows how to compile the test into an object file named `test-primes.o`. 
 The compilation then continues.  It tries to build the test executable, but we get a series of
 errors here when it tries to link together the test executable.  All of the errors are because
 of an `undefined reference to isPrime(int)`.  The function signature you added
@@ -373,7 +372,7 @@ tells the compiler how another file can use the function.  But we need to provid
 together the code, there is an implementation that can be called to compute the
 `isPrime()` function results.
 
-So lets add in the implementation.  In the `assg-functions.cpp` file, add in the
+So lets add in the implementation.  In the `primes.cpp` file, add in the
 following stub implementation.
 
 ```c++
@@ -405,16 +404,17 @@ Notice that this is not really a correct implementation.  It is a stub function,
 it always just answers `true` whenever it is asked if any `value` is a prime
 number or not.
 
-Compile your program once again.  You should find that it will not correctly compile
+Compile your program once again.  You should find that it will now correctly compile
 and link together your `test` executable, if you have correctly entered the
 stub function and function prototype.
 
 ```
 $ make all
 
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-functions.cpp -o obj/assg-functions.o
-g++ -Wall -Werror -pedantic -g  obj/tests-main.o  obj/assg-tests.o  obj/assg-functions.o -o test
-g++ -Wall -Werror -pedantic -g  obj/assg-main.o  obj/assg-functions.o -o debug
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
+g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
+
 ```
 
 Always make sure your program is in a compilable state.  If it can compile the `test` executable,
@@ -431,70 +431,70 @@ Run with -? for options
 
 <isPrime()> function tests
 
-src/assg-tests.cpp:30
+src/test-primes.cpp:30
 
 
-src/assg-tests.cpp:38: FAILED:
+src/test-primes.cpp:38: FAILED:
   CHECK_FALSE( isPrime(4) )
 with expansion:
   !true
 
-src/assg-tests.cpp:42: FAILED:
+src/test-primes.cpp:42: FAILED:
   CHECK_FALSE( isPrime(6) )
 with expansion:
   !true
 
-src/assg-tests.cpp:44: FAILED:
+src/test-primes.cpp:44: FAILED:
   CHECK_FALSE( isPrime(8) )
 with expansion:
   !true
 
-src/assg-tests.cpp:45: FAILED:
+src/test-primes.cpp:45: FAILED:
   CHECK_FALSE( isPrime(9) )
 with expansion:
   !true
 
-src/assg-tests.cpp:46: FAILED:
+src/test-primes.cpp:46: FAILED:
   CHECK_FALSE( isPrime(10) )
 with expansion:
   !true
 
-src/assg-tests.cpp:48: FAILED:
+src/test-primes.cpp:48: FAILED:
   CHECK_FALSE( isPrime(12) )
 with expansion:
   !true
 
-src/assg-tests.cpp:50: FAILED:
+src/test-primes.cpp:50: FAILED:
   CHECK_FALSE( isPrime(14) )
 with expansion:
   !true
 
-src/assg-tests.cpp:51: FAILED:
+src/test-primes.cpp:51: FAILED:
   CHECK_FALSE( isPrime(15) )
 with expansion:
   !true
 
-src/assg-tests.cpp:52: FAILED:
+src/test-primes.cpp:52: FAILED:
   CHECK_FALSE( isPrime(16) )
 with expansion:
   !true
 
-src/assg-tests.cpp:54: FAILED:
+src/test-primes.cpp:54: FAILED:
   CHECK_FALSE( isPrime(18) )
 with expansion:
   !true
 
-src/assg-tests.cpp:56: FAILED:
+src/test-primes.cpp:56: FAILED:
   CHECK_FALSE( isPrime(20) )
 with expansion:
   !true
 
-src/assg-tests.cpp:63: FAILED:
+src/test-primes.cpp:63: FAILED:
   CHECK_FALSE( isPrime(1017) )
 with expansion:
   !true
 
-src/assg-tests.cpp:64: FAILED:
+src/test-primes.cpp:64: FAILED:
   CHECK_FALSE( isPrime(101831) )
 with expansion:
   !true
@@ -509,7 +509,7 @@ make: *** [include/Makefile.inc:60: tests] Error 13
 
 Here you should see, that while the tests run, many of the tests
 are failing, as can be seen from the output of running the tests.
-If you look closely back at the `assg-tests.cpp` file, you will
+If you look closely back at the `test-primes.cpp` file, you will
 see that not all of the tests are failing.  It actually passes the
 first 3 tests that check if 1, 2 and 3 are prime.  This should make
 sense, because your stub function always returns `true`, so if the
@@ -528,7 +528,7 @@ Open the Git section in VSCode.  You will see that the 3 files you modified
 are now listed as changed in your repository.  Perform a `stage all changes`
 to add all of these 3 file changes to the commit you are creating.  Once the
 files are staged for the commit, write a commit message and then select
-the checkmark to commit these changes to your current `feedback` branch.
+the check-mark to commit these changes to your current `feedback` branch.
 Try and always use good commit messages.  Read the following:
 [Git Commit Messages Guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
 
@@ -555,7 +555,7 @@ the `feedback` branch that is ahead of the remote repository.  If you push
 this indicator, your commit will be pushed to the `feedback` branch on your
 GitHub repository.
 
-Once you have pushed your comit changes, we can now create a pull request.
+Once you have pushed your commit changes, we can now create a pull request.
 You will need to create a pull request for each assignment, and have at
 least 1 commit (though you should have more) that will be part of the
 pull request in the `feedback` branch.  The following actions need to
@@ -574,7 +574,7 @@ At this point you should see that you have 1 open pull request.  If you go
 to this request, you will see that the GitHub action checks for this commit failed.
 If you look at the Details of the checks, you will see that the commit does build, but it fails to
 pass all of the tests for the `isPrime()`, the same ones that you saw
-were failind.  And also the action checks for the other function
+were failing.  And also the action checks for the other function
 you will write next will be failing as well.
 
 You should also associate this pull request with the Task 1 issue that you created.
@@ -631,7 +631,7 @@ bool isPrime(int value)
 ```
 
 This function performs a brute force search of all possible numbers that might
-be divisors of the `value`.  A number is prime if it hs no divisors other than 1
+be divisors of the `value`.  A number is prime if it has no divisors other than 1
 and the `value`.  So if any other `divisor` is found, the function can return
 an answer of `false` indicating that the number is not prime.  But if we check
 all divisors and don't find any, then the answer is `true`, the number is prime.
@@ -642,12 +642,11 @@ all of the tests now pass.
 ```
 $ make
 mkdir -p obj
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/tests-main.cpp -o obj/tests-main.o
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-tests.cpp -o obj/assg-tests.o
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-functions.cpp -o obj/assg-functions.o
-g++ -Wall -Werror -pedantic -g  obj/tests-main.o  obj/assg-tests.o  obj/assg-functions.o -o test
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg-main.cpp -o obj/assg-main.o
-g++ -Wall -Werror -pedantic -g  obj/assg-main.o  obj/assg-functions.o -o debug
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/test-primes.cpp -o obj/test-primes.o
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/main.cpp -o obj/main.o
+g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
 
 $ make tests
 ././test --use-colour yes
@@ -657,7 +656,7 @@ All tests passed (24 assertions in 1 test case)
 ```
 
 You should find that all of the (uncommented) tests of `isPrime()` now pass.  If they do,
-create a new commit of your changes (should only be changes in the `assg-functions.cpp` file
+create a new commit of your changes (should only be changes in the `primes.cpp` file
 this time), and push your changes.  Make sure you provide an appropriate commit message.
 
 Go and look at your pull request again on GitHub.  You will see that this second commit has
@@ -673,21 +672,21 @@ the Task 2 issue in your GitHub account before beginning work on
 Task 2.  There is still a second function that you need to write and
 pass the tests for in order to complete the assignment.  As with the
 first task, start by uncommenting the second `TEST_CASE` set of tests
-in `assg-tests.cpp`.  You should try building your code now.  You
+in `test-primes.cpp`.  You should try building your code now.  You
 will of course see that the build is now failing, because the tests
 want to run a function named `findPrimes()` but you haven't written it
 yet.
 
 As before, lets start by doing the minimal work to get the project back to a 
 compilable state.  Add a function prototype for the function again into
-`assg-functions.hpp` header file:
+`primes.hpp` header file:
 
 ```
 int findPrimes(int start, int end, bool displayOnCout = true);
 ```
 
 Once you have done this try building again.  You should find that the tests can compile, but
-again the test executable will not build because we havn't given an implementation for
+again the test executable will not build because we haven't given an implementation for
 `findPrimes()` yet.
 
 And as before, lets just add a stub implementation so we can get things building again.
@@ -735,15 +734,15 @@ Run with -? for options
 -------------------------------------------------------------------------------
 <findPrimes()> function tests
 -------------------------------------------------------------------------------
-src/assg-tests.cpp:71
+src/test-primes.cpp:71
 
 
-src/assg-tests.cpp:79: FAILED:
+src/test-primes.cpp:79: FAILED:
   CHECK( findPrimes(1, 10, false) == 169 )
 with expansion:
   9 == 169
 
-src/assg-tests.cpp:84: FAILED:
+src/test-primes.cpp:84: FAILED:
   CHECK( findPrimes(10, 1500, false) == 4256 )
 with expansion:
   9 == 4256 (0x10a0)
@@ -842,11 +841,11 @@ and then rebuild and run the tests.  If all tests are uncommented, and all of th
 then you are in good shape at this point.
 
 To finish the assignment, you should create a final commit of these changes in
-`assg-functions.cpp` to implement your `findPrimes()` function.  Make sure to
+`primes.cpp` to implement your `findPrimes()` function.  Make sure to
 give a good and appropriate commit message.  Push the changes to your GitHub repository.
 When you are finished, it is a good idea then to leave a final comment in your
 pull request stating that you think you are finished and ready to have the work
-evaluated.  The instructor make give feedback during your developement, or at the end.
+evaluated.  The instructor make give feedback during your development, or at the end.
 You should notice that your final commit is now passing all of the build tasks on
 GitHub.  This is a good sign for the assignment.  Though passing all of the tests may not
 mean you have completed all of the work successfully yet.  For example, at times you may
@@ -863,7 +862,7 @@ comments before the 2 functions you were given here.
 For this class, the submission process is to correctly create a pull request with
 changes committed and pushed to your copied repository for grading and evaluation.
 For the assignments, you may not be able to complete all tasks and have all of the
-tests successfully finishing.  This is ok.  However, you should endeavor to have as
+tests successfully finishing.  This is OK.  However, you should endeavor to have as
 many of the tasks completed before the deadline for the assignment.  Also, try and make sure
 that you only push commits that are building and able to run the tests.  In this
 practice assignment, 50 points out of 100 were assigned to correctly building.  In general,
@@ -894,7 +893,7 @@ the following style/formatting issues will be required for programs for this cla
    will need to create variables, and maybe some functions, that conform to the naming
    conventions.
    - Global constants should be used instead of magic numbers.  Global constants are
-     identified useing `ALL_CAPS_UNDERLINE_NAMING`.
+     identified using `ALL_CAPS_UNDERLINE_NAMING`.
    - User defined types, such as classes, structures and enumerated types should use
      camel case notation, but should begin with an initial upper case letter, thus
 	 `MyUserDefinedClass`.
@@ -906,7 +905,7 @@ the following style/formatting issues will be required for programs for this cla
    index variables `i`, `j`, etc.  Make your code readable, think of
    it as writing a document to communicate with other developers (and
    with your instructor who will be evaluating your code).
-4. There are certain whitespace requirements.  In general there should
+4. There are certain white space requirements.  In general there should
    usually never be more than 1 blank line in a row in your code.
    Likewise there should usually not be more than 1 blank space on a
    line.  There should be 1 blank space before and after all binary

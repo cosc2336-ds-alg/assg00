@@ -13,7 +13,7 @@
     {
       "name": "test isPrime",
       "setup": "make",
-      "run": "./test --list-test-names-only [isPrime] | grep . && ./test [isPrime]",
+      "run": "./test --list-test-names-only [task1] | grep . && ./test [task1]",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -23,7 +23,7 @@
     {
       "name": "test findPrimes",
       "setup": "make",
-      "run": "./test --list-test-names-only [findPrimes] | grep . && ./test [findPrimes]",
+      "run": "./test --list-test-names-only [task2] | grep . && ./test [task2]",
       "input": "",
       "output": "",
       "comparison": "included",
