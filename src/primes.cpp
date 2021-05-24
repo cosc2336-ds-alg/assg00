@@ -1,4 +1,5 @@
 /** @file primes.cpp
+ *
  * @brief Implementation file for Assignment Primes: Practice Example
  *   and Class Workflow
  *
@@ -19,7 +20,8 @@
 using namespace std;
 
 
-/** isPrime
+/** @brief Is value prime
+ *
  * Determine if a given (positive) integer value >= 1 is prime.
  * Prime numbers are numbers that are divisible only by 1 and
  * themselves.  Thus in this implementation, we use a brute force
@@ -36,7 +38,8 @@ using namespace std;
 // write your implementation if isPrime() function here
 
 
-/** findPrimes
+/** @brief Find primes in range
+ *
  * Find primes in a range of values from start to end (inclusive).
  * This function returns a count of the number of primes found within
  * the range.  As a side effect, the primes that are found in the range
