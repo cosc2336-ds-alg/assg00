@@ -14,11 +14,10 @@
  * function and is meant to be compiled to a separate executable to be
  * used for debugging or testing.
  */
+#include "primes.hpp"
 #include <cmath>
 #include <iostream>
-#include "primes.hpp"
 using namespace std;
-
 
 /** @brief Main entry point
  *

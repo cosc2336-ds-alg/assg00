@@ -15,10 +15,9 @@
  * implement the functions that are dscribed in this practice
  * exercise.
  */
-#include <iostream>
 #include <cmath>
+#include <iostream>
 using namespace std;
-
 
 /** @brief Is value prime
  *
@@ -36,7 +35,6 @@ using namespace std;
  *   is not.
  */
 // write your implementation if isPrime() function here
-
 
 /** @brief Find primes in range
  *

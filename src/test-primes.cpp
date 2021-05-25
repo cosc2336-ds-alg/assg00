@@ -19,10 +19,10 @@
  * function, then incrementally add code till you pass the defined
  * tests.
  */
-#include <cmath>
-#include <iostream>
 #include "catch.hpp"
 #include "primes.hpp"
+#include <cmath>
+#include <iostream>
 using namespace std;
 
 /** isPrime() test cases
@@ -67,7 +67,6 @@ using namespace std;
    CHECK_FALSE(isPrime(101831) );
    }
  */
-
 
 /** findPrimes() test cases
  * Uncomment the following test case block and write your code
