@@ -143,10 +143,10 @@ dependencies and libraries used by all of the class assignments, and
 it will do some small configurations to the assignment to make it ready
 to build and test.
 
-## Congfigure Global Git Configuration Settings
+## Check Global Git Configuration Settings
 
 
-This is a good time to do some global 
+This is a good time to check you have done the global 
 [first-time git configuration](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
 In order to make commits to git repositories, you have to set a name
 and e-mail address in each local system you are using.  You should
@@ -169,20 +169,69 @@ your GitHub account here.  The primary e-mail will be used when you
 push a change to your repository to connect the commit to your GitHub
 user account.
 
+
+## Check that Initial Project Files Compile and Run Tests
+
+Before starting to implement the assignment tasks, confirm that your
+starting code is compiling and running.  From your VSCode DevBox, open
+the `assg00` folder if it is not currently open.  Then perform a `make
+clean / make all / make tests`.  You can use VSCode command palette to
+perform the `Run Task` command, and select these tasks from the
+command palette.  Keyboard shortcuts should already be assigned to
+these common tasks, so you could do them as follows
+
+- `ctrl-shift-1` make clean
+```
+> Executing task: make clean <
+
+rm -rf ./test ./debug *.o *.gch
+rm -rf output html latex
+rm -rf obj
+```
+- `ctrl-shift-2` or `ctrl-shift-b` make build
+```
+> Executing task: make all <
+
+mkdir -p obj
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/test-primes.cpp -o obj/test-primes.o
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
+g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/main.cpp -o obj/main.o
+g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
+```
+- `ctrl-shift-3` make tests
+```
+> Executing task: make tests <
+
+././test --use-colour yes
+===============================================================================
+No tests ran
+```
+
+The project should compile cleanly with no errors when you do the `make build`, and
+the tests should run from `make tests`, though all tests are currently commented
+out, so there are not actual tests available to run yet.
+
+
 ## Practice Assignment Example Ready 
 
 At this point you should be ready to begin working on the practice 'Assignment Example'.
 For all of the assignments for this class you will follow the same steps
 in the previous section(s) when you get started on a new assignment.
 
-1. Accept and copy the assignment repository on GitHub using the
-   provided invitation link for our class semester and section.
-2. Clone the repository using the SSH URL to your local class DevBox using
-   VSCode built-in git management.
-3. Configure the assignment using the `configure` script.  This needs to be
-   done from a command line terminal.
-4. Create the issue for the first task and associate it with the open `Feedback`
-   pull request.
+1. Accept the assignment invitation and copy the assignment repository
+   on GitHub using the provided assignment invitation link for the
+   'Assignment Functions' for our current class semester and section.
+2. Clone the repository to your DevBox using the SSH URL to your local
+   class DevBox development environment.
+3. Configure the project by running the `configure` script from a terminal.
+4. Confirm that the project builds and runs, though no tests mabe be
+   defined or run initially.  If the project does not build on the first
+   checkout, please inform the instructor.
+5. You should create the issue for Task 1 and/or for all tasks for the assignment
+   now before beginning the first task.  On your GitHub account, go to issues,
+   and create it/them from the issue templates for the assignment. Also make sure
+   you link the issue(s) with the `Feedback` pull request.
    
 At this point for each assignment, you will be ready to begin reading the
 assignment description and working on the assignment tasks.
@@ -239,46 +288,6 @@ project that is currently not running and compiling.  Do not write
 more than 2 or 3 lines of code at a time without trying to compile and
 run your project.
 
-Before starting on the tasks below, confirm that your starting code
-is compiling and running.  From your VSCode DevBox, open the `assg00`
-folder if it is not currently open.  Then perform a 
-`make clean / make all / make tests`.
-You can use VSCode command palate to perform the `Run Task` command, and
-select these tasks from the command palette.  Keyboard shortcuts should
-already be assigned to these common tasks, so you could do them as
-follows
-
-- `ctrl-shift-1` make clean
-```
-> Executing task: make clean <
-
-rm -rf ./test ./debug *.o *.gch
-rm -rf output html latex
-rm -rf obj
-```
-- `ctrl-shift-2` or `ctrl-shift-b` make build
-```
-> Executing task: make all <
-
-mkdir -p obj
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/test-primes.cpp -o obj/test-primes.o
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
-g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/main.cpp -o obj/main.o
-g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
-```
-- `ctrl-shift-3` make tests
-```
-> Executing task: make tests <
-
-././test --use-colour yes
-===============================================================================
-No tests ran
-```
-
-The project should compile cleanly with no errors when you do the `make build`, and
-the tests should run from `make tests`, though all tests are currently commented
-out, so there are not actual tests available to run yet.
 
 
 # Assignment Tasks
