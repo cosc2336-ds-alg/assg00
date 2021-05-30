@@ -225,7 +225,7 @@ in the previous section(s) when you get started on a new assignment.
 2. Clone the repository to your DevBox using the SSH URL to your local
    class DevBox development environment.
 3. Configure the project by running the `configure` script from a terminal.
-4. Confirm that the project builds and runs, though no tests mabe be
+4. Confirm that the project builds and runs, though no tests may be be
    defined or run initially.  If the project does not build on the first
    checkout, please inform the instructor.
 5. You should create the issue for Task 1 and/or for all tasks for the assignment
