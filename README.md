@@ -455,7 +455,8 @@ So lets add in the implementation.  In the `primes.cpp` file, located
 in the `src` subdirectory, add in the following stub implementation.
 
 ```c++
-/** isPrime
+/** @brief Is value prime
+ *
  * Determine if a given (positive) integer value >= 1 is prime.
  * Prime numbers are numbers that are divisible only by 1 and
  * themselves.  Thus in this implementation, we use a brute force
@@ -662,7 +663,8 @@ function that will pass the unit tests.  Modify your `isPrime()` function
 to look like the following.
 
 ```c++
-/** isPrime
+/** @brief Is value prime
+ *
  * Determine if a given (positive) integer value >= 1 is prime.
  * Prime numbers are numbers that are divisible only by 1 and
  * themselves.  Thus in this implementation, we use a brute force
@@ -765,7 +767,8 @@ The `findPrimes()` function is supposed to be returning the number of primes it 
 Lets just start by returning 9 (which is what the first test in our test cases is expecting).
 
 ```c++
-/** findPrimes
+/** @brief Find primes in range
+ *
  * Find primes in a range of values from start to end (inclusive).
  * This function returns a count of the number of primes found within
  * the range.  As a side effect, the primes that are found in the range
@@ -849,7 +852,8 @@ within the range.  Modify your implementation of `findPrimes()` with the followi
 code.
 
 ```c++
-/** findPrimes
+/** @brief Find primes in range
+ *
  * Find primes in a range of values from start to end (inclusive).
  * This function returns a count of the number of primes found within
  * the range.  As a side effect, the primes that are found in the range
