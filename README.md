@@ -1,16 +1,16 @@
 ---
-title: 'Assignment Example: Example Workflow for Class Assignments to Setup Git, GitHub and VSCode'
-author: 'COSC 2336: Data Structures and Algorithms'
-date: 'Summer 2021'
+title: 'Assignment Example: Example Workflow for Class Assignments to Setup Git, GitHub and VSCode Dev Containers'
+author: 'COSC 2336 430: Data Structures and Algorithms'
+date: ''
 ---
 
 # Objectives
-- Setup and explore your VSCode DevBox Environment
+- Setup and explore your VSCode Dev Container Environment
 - Learn some basic Git commands and workflow
 - Practice submitting an example class project
 - Make sure class GitHub accounts are configured for git pushes and pull requests.
 - Make sure VSCode development IDE is configured properly for C++ projects
-- Learn about unit testing framework used for class assignment's.
+- Learn about unit testing framework and test runner used for class assignments.
 
 # Description
 
@@ -26,6 +26,7 @@ we will be using for this class include:
 - Basic Git usage, and using GitHub repositories for committing work and pull requests.
 - Unit test frameworks, we use the Catch2 unit test framework for our C++ coding
   assignments.
+- Using Dev Containers in VSCode to have a common set of development tools.
   
 This practice assignment will walk you through the basic procedures and
 setup of assignments for our class assignments.  Videos of the instructor
@@ -35,152 +36,86 @@ the tools we will be using.
 
 # Pre-Setup and Configuration
 
-Before performing this practice assignment workflow, you should have the following
-tasks already completed.
+You need to complete the steps in the DevelopmentEnvironmentSetup.md file
+before continuing with this practice assignment.  All assignments assume
+that you have the following configurations completed in order to work on the
+assignments.
 
-## DevBox Configuration
+1. You have created a GitHub account to use for this class.
+2. You have set up your GitHub ssh key so that you can clone repositories that
+   you own and have write access so you can commit and push your changes back
+   to your repositories.
+3. You have installed Microsoft VSCode IDE/Editor on your system.
+4. You have installed and learned how to use the Remote Containers extension
+   in your VSCode IDE, so that you can clone your repositories, use the
+   provided build tools and extensions, and can push your work back to your
+   repositories for grading.
 
-1. You need to have your working class DevBox installed and be able to access
-   the VSCode IDE from your system for development of class assignments.
-   Go to the following URL and follow the instructions to setup and install
-   your class DevBox. 
-   [https://github.com/tamuc-class/cosc2336-devbox](https://github.com/tamuc-class/cosc2336-devbox)
-   There is a video link on the README that walks you through installing and
-   setting up the development environment.
-2. You will need to create a GitHub account if you do not already have one.
-   Go to the following URL and create a GitHub account to use.  You may want to
-   keep using this account in the future, so use your most useful e-mail address
-   (doesn't necessarily need to be your TAMUC e-mail address).  Also select a
-   good username, and consider configuring your GitHub bio, icon and other properties.
-   [https://github.com/](https://github.com/)
-3. A ssh public/private key will be created for you to use in your
-   class DevBox.  Open up the file name
-   `/home/vagrant/.ssh/id_ed25519.pub` in your class DevBox (you can
-   open this file from the VSCode code-server editor).  You need to
-   add this public key to your GitHub account.  Login to GitHub,
-   navigate to `settings -> SSH and GPG keys`.  Create a `New SSH key`
-   and copy/paste the text from the public key file into your GitHub
-   key.  Give the key a meaningful name, for example `COSC 2336 DevBox
-   Public Git Key`.
-4. There is one VSCode extension that you will need to install by hand
-   in your class DevBox VSCode environment.  It was downloaded but can
-   not be auto installed for you.  From your class DevBox VSCode
-   code-server open up your `Extensions` (left sidebar).  Click on the
-   `...` at the top of the extensions for additional tasks and select
-   `Install from VSIX`.  There should be a file named
-   `cpptools-linux.vsix` in your home directory.  Select this
-   extension to install it.  This extension adds in basic C++ IDE
-   features like intellisense, build problem parsing and
-   notifications, context sensitive completions, etc.
+If you have a working VSCode IDE, and have set up the Dev Containers, then
+you can proceed with this and all assignments for the class.
 
-## Copy Assignment Repository on GitHub
+When your development environment is configured and ready, before each assignment
+you will perform the following steps to begin working on the assignment.
 
-Once you have completed these tasks, you are ready to begin working on the
-practice 'Assignment Example'.  For all of our class assignments, you will first need
-to clone a repository I will give you from GitHub classrooms. I will post
-an invitation link to access the GitHub classroom repository for each assignment
-in our MyLeoOnline course management system.
+## Accept the Assignment to create your repository on GitHub
 
-By following that link, you will be taken to GitHub, where you will be asked to
-accept the assignment.  If this is the first assignment you are accepting, you need
-to associate your GitHub account with the class ID that identifies you as a member
-of this class.  Please let me know if you do not see yourself listed as a student
-here.  Once you associate your account and accept the assignment, a copy of the
-assignment will be created for you in your GitHub account.
+For all assignments you will be given a link that will allow you to accept
+the GitHub classroom assignment.  Accepting the assignment will make
+a copy of the assignment code in your GitHub account from the
+assignment template.  Once you accept the assignment, you will have
+a GitHub repository that you can clone and push your work back into
+for grading.
 
-## Clone Repository using SSH to Class DevBox
+By following assignment invitation link, you will be taken to GitHub,
+where you will be asked to accept the assignment.  If this is the
+first assignment you are accepting, you need to associate your GitHub
+account with the class ID that identifies you as a member of this
+class.  Please let me know if you do not see yourself listed as a
+student here.  Once you select your student ID, you will need to
+create a team name.  Teams of 2 or 3 students may be allowed for
+the class.  Ask the instructor before starting assignment 01 about
+forming teams.  There are additional work that needs to be done
+to collaborate successfully using git if you form a team, so be
+aware of that.
 
-The copied repository will be named something like `assg00-username`
+## Clone Repository using SSH to a VSCode Dev Container
+
+Your new repository on GitHub will be named something like `assg00-username`
 where it appends your GitHub username or group name to the repository.
-Once you have this repository copied in GitHub, you need to clone the
-repository to your DevBox locally so that you can work on it.
+Once you have this repository created in GitHub, you need to clone the
+repository to a VSCode Dev Container.
 
-In your class DevBox, open the Git section.  Select the `Clone
-Repository` button to clone your repository.  You need to copy/paste
-your GitHub ssh URL into your DevBox to clone the repository.  You
-find your GitHub URL by opening your repository on GitHub, navigating
-to `Code`, and pulling down the `Code` download button.  Make sure
-that you clone using ssh, not https.  If you clone using ssh you will
-not be able to push your changes back to the repository.  If you get
-an error message that the ssh clone failed because you do not have
-permission to access the repository, then you have probably not yet
-successfully created your ssh public key in step 3 above in your
-GitHub account yet.
+Startup the VSCode IDE, and open up the "Remote Explorer" on the
+left hand side.  The "Remote Explorer" section will not be present
+unless you have correctly installed the Remote Containers extension
+in your VSCode IDE, as described in the more detailed environment
+detailed instructions.
 
-You should clone this and all assignments into your `~/sync/assg`
-directory.  This will allow you to be able to access the files on your host
-system as well.
+In the "Remote Explorer", if you hover over the CONTAINERS item, there
+will be a "+" mark allowing yout to create a new container.  Select
+the "+" to create a new container, then select "Clone Repository
+in Container Volume...".  This will allow you to clone your 
+GitHub repository into a suitable Dev Container with all 
+development tools set up that you need for the assignments.
+You should copy and paste the repository ssh url when asked here for
+the repository url, so that you can have write access to push
+back your work to your GitHub repository.
 
-## Configure the Assignment Directory
-
-All of the assignments for this class use the `Make` build system
-(see references below), and use the following basic pattern of
-commands to configure, build and test the project
-
-```
-$ ./configure
-$ make
-$ make tests
-```
-
-The configuration of each assignment directory only needs to be
-performed one time, immediately after you clone the repository.
-To do this you will need to open up and use a terminal.
-You can open a terminal from your VSCode DevBox.  If you currently
-have your repository open as the project you are working on, then
-any new terminal you start should start up in your repository
-directory.  If it doesn't, you may need to first change
-into your repository directory.  Once in your repository
-directory, run the configure command like this:
-
-```
-$ cd sync/assg/assg00-name
-$ ./configure
-```
-
-The configuration script will download and install some necessary
-dependencies and libraries used by all of the class assignments, and
-it will do some small configurations to the assignment to make it ready
-to build and test.
-
-## Check Global Git Configuration Settings
-
-
-This is a good time to check you have done the global 
-[first-time git configuration](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup).
-In order to make commits to git repositories, you have to set a name
-and e-mail address in each local system you are using.  You should
-only have to do the following 1 time on your class DevBox, these
-configuration are global for all git repositories on a machine.  So if
-you perform these for this practice assignment, you shouldn't have to
-perform them again, though of course you can perform them anytime that
-is needed.
-
-Open up a terminal and perform the following commands from a command line.
-
-```
-git config --global user.name "Jane Programmer"
-git config --global user.email "janeprogrammer@example.com"
-```
-
-You should of course replace with your own name here.  You should make
-sure that you use the same e-mail that you used to set up and verify
-your GitHub account here.  The primary e-mail will be used when you
-push a change to your repository to connect the commit to your GitHub
-user account.
+TODO: determine the best procedure to clone repository into a remote
+container.
 
 
 ## Check that Initial Project Files Compile and Run Tests
 
 Before starting to implement the assignment tasks, confirm that your
-starting code is compiling and running.  From your VSCode DevBox, open
+starting code is compiling and running.  From your VSCode Dev Container, open
 the `assg00` folder if it is not currently open.  Then perform a `make
 clean / make all / make tests`.  You can use VSCode command palette to
 perform the `Run Task` command, and select these tasks from the
 command palette.  Keyboard shortcuts should already be assigned to
 these common tasks, so you could do them as follows
 
-- `ctrl-shift-1` make clean
+- `ctrl-shift-c` make clean
 ```
 > Executing task: make clean <
 
@@ -188,7 +123,7 @@ rm -rf ./test ./debug *.o *.gch
 rm -rf output html latex
 rm -rf obj
 ```
-- `ctrl-shift-2` or `ctrl-shift-b` make build
+- `ctrl-shift-b`  make build
 ```
 > Executing task: make all <
 
@@ -199,18 +134,19 @@ g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3
 g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/main.cpp -o obj/main.o
 g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
 ```
-- `ctrl-shift-3` make tests
+- `ctrl-shift-t` make unit-tests
 ```
-> Executing task: make tests <
+> Executing task: make unit-tests <
 
 ././test --use-colour yes
 ===============================================================================
 No tests ran
 ```
 
-The project should compile cleanly with no errors when you do the `make build`, and
-the tests should run from `make tests`, though all tests are currently commented
-out, so there are not actual tests available to run yet.
+The project should compile cleanly with no errors when you do the
+`make build`, and the tests should run from `make tests`, though all
+tests are currently undefined, so there are not actual tests available
+to run yet.
 
 
 ## Practice Assignment Example Ready 
@@ -219,18 +155,16 @@ At this point you should be ready to begin working on the practice 'Assignment E
 For all of the assignments for this class you will follow the same steps
 in the previous section(s) when you get started on a new assignment.
 
-1. Accept the assignment invitation and copy the assignment repository
-   on GitHub using the provided assignment invitation link for the
-   'Assignment Functions' for our current class semester and section.
-2. Clone the repository to your DevBox using the SSH URL to your local
-   class DevBox development environment.
-3. Configure the project by running the `configure` script from a terminal.
-4. Confirm that the project builds and runs, though no tests may be be
+1. Accept the assignment invitation from GitHub classroom to create
+   the assignment repository in your GitHub acount.
+2. Clone the repository to a VSCode Dev Container using the SSH URL of your
+   GitHub repository for the assignment.
+3. Confirm that the project builds and runs, though no tests may be be
    defined or run initially.  If the project does not build on the first
    checkout, please inform the instructor.
 5. You should create the issue for Task 1 and/or for all tasks for the assignment
    now before beginning the first task.  On your GitHub account, go to issues,
-   and create it/them from the issue templates for the assignment. Also make sure
+   and create them from the issue templates for the assignment. Also make sure
    you link the issue(s) with the `Feedback` pull request.
    
 At this point for each assignment, you will be ready to begin reading the
@@ -239,25 +173,27 @@ assignment description and working on the assignment tasks.
 
 # Overview and Setup
 
-For all assignment, it will be assumed that you have a working class DevBox, and
-that you have accepted and cloned the assignment before beginning to work on it.
-We will start each assignment with a description of the general setup of the
+For all assignment, it will be assumed that you have a working VSCode
+IDE with remote Dev Containers working, and that you have accepted and
+cloned the assignment to a Dev Container in your VSCode IDE.  We will
+start each assignment with a description of the general setup of the
 assignment, and an overview of the assignment tasks.
 
 
 For this practice assignment you have been given the following files (among many others):
 
-| File Name             | Description                                                                 |
-|-----------------------|-----------------------------------------------------------------------------|
-| `src/test-primes.cpp` | Unit tests for the two functions  you are to write.                         |
-| `include/primes.hpp`  | Header file for function prototypes you are to add.                         |
-| `src/primes.cpp`      | Implementation file for the functions you are to write for this assignment. |
+| File Name              | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| `src/assg00-tests.cpp` | Unit tests for the two functions  you are to write.                         |
+| `src/assg00-sim.cpp`   | The `main()` function for the assignment command line simulation.           |
+| `include/primes.hpp`   | Header file for function prototypes you are to add for this assignment.     |
+| `src/primes.cpp`       | Implementation file for the functions you are to write for this assignment. |
 
 
-All assignments for this class are in the form of multi-file projects.
-All source files will be in the `src` subdirectory, and all header files
-which are needed so you can share and include code will be in the
-`include` directory.
+All assignments for this class are multi-file projects.  All source
+files will be in the `src` subdirectory, and all header files which
+are needed so you can share and include code will be in the `include`
+subdirectory.
 
 For this and all class assignments, we will be using a unit testing
 framework.  The GitHub repository has been set up to perform a build
@@ -269,7 +205,7 @@ working for the assignment.
 For this practice assignment, you will need to add codes into two
 files, named `primes.hpp` and `primes.cpp`.  In addition, the unit
 tests you need to pass for the practice assignment are given to you in
-`test-primes.cpp`.  Some or all of these tests will be commented out
+`assg00-tests.cpp`.  Some or all of these tests will be commented out
 to begin with for the assignments.  You will uncomment the tests and
 write the code to get the tests to pass as the main work for each
 assignment.
@@ -307,23 +243,6 @@ control system like git.  But at a minimum, you must make at least 1
 commit for each task, and that commit must implement the task fully
 and pass the tests for that task.
 
-**NOTE**: I will allow groups to work on the assignments.  When you
-accept an assignment, you can create a group.  You can form a group of
-1 person, if you prefer.  I will allow up to 2 or 3 people in a group,
-but no more.  There are additional requirements for group work.  The
-most important is that, if you form a group, you must use git and show
-that all members of the group are working on and pushing work and
-commits to the repository.  So in short, there must be a roughly equal
-number of commits to the assignment from each group member.  So for an
-example, an assignment with 2 people that has 2 tasks, needs a minimum
-of 2 tasks committed by each student in the group.  For 3 students and
-5 tasks, each student must make at least 1 commit.  This will require
-each student in the group to have a working development environment
-and GitHub account.  And, you will need to learn to use git
-collaboratively, when a teammate commits and pushes some code, you
-will need to do a `git pull` to receive their changes and work on the
-code with their changes for the assignment.
-
 **NOTE**: All assignments for this class, when you accept them from
 GitHub classroom, will create a `Feedback` pull request for you.  This
 pull request is tracking all commits to the `main` branch to be pulled
@@ -341,8 +260,9 @@ may be comments or requirements from me for additional tasks or items
 you need to fix before your work is considered 100% complete.
 
 For this practice assignment, the goal is to create two functions
-named `isPrime()` and `findPrimes()`.  We will start with the first
-function.
+named `isPrime()` and `findPrimes()`.  Then finally these functions
+are used in a command line simulation tool.  We will start with the
+first function.
 
 ## Task 1: Implement `isPrime()` Function
 
@@ -360,34 +280,52 @@ gives a TLDR description of what needs to be done for that task of the
 assignment.  Once you get the hang of things, you may be able to work
 on and complete the tasks from the issue descriptions alone.
 
-Once you have the Task 1 issue created, open up the `test-primes.cpp`
+Once you have the Task 1 issue created, open up the `assg00-tests.cpp`
 file.  In this file you will find two `TEST_CASE` sections that are
-both currently commented out.  The first of these has a set of checks
-to test the `isPrime()` function.  Uncomment just this first
-`TEST_CASE`.  After uncommenting this test case, perform a `make
+both currently undefined.  The first of these has a set of checks
+to test the `isPrime()` function.  At the top of test files you will
+find lines like
+
+```
+// change these to #define when ready to begin working on each task,
+// once defined they will enable the tests declared below for each task
+#undef task1
+#undef task2
+```
+
+We want to begin working on Task 1, so we need to define task 1 so that
+the test cases and unit tests for Task 1 are defined and compiled.  Modify
+the line like this to define the task 1 tests:
+
+```
+#define task1
+```
+
+After defining the task1 test case, perform a `make
 build` of your code.  You should find that the build will fail with
 the following message:
 
 ```
 $ make all
 
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/test-primes.cpp -o obj/test-primes.o
-In file included from src/test-primes.cpp:22:
-src/test-primes.cpp: In function ‘void ____C_A_T_C_H____T_E_S_T____0()’:
-src/test-primes.cpp:33:10: error: ‘isPrime’ was not declared in this scope
-   33 |    CHECK(isPrime(1) );
-      |          ^~~~~~~
-In file included from src/test-primes.cpp:22:
-src/test-primes.cpp:33:10: error: ‘isPrime’ was not declared in this scope
-   33 |    CHECK(isPrime(1) );
-      |          ^~~~~~~
-make: *** [include/Makefile.inc:51: obj/test-primes.o] Error 1
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg00-tests.cpp -o obj/assg00-tests.o
+In file included from src/assg00-tests.cpp:22:
+src/assg00-tests.cpp: In function ‘void C_A_T_C_H_T_E_S_T_0()’:
+src/assg00-tests.cpp:41:9: error: ‘isPrime’ was not declared in this scope
+   41 |   CHECK(isPrime(1));
+      |         ^~~~~~~
+In file included from src/assg00-tests.cpp:22:
+src/assg00-tests.cpp:41:9: error: ‘isPrime’ was not declared in this scope
+   41 |   CHECK(isPrime(1));
+      |         ^~~~~~~
+make: *** [include/Makefile.inc:63: obj/assg00-tests.o] Error 1
 ```
 
-What is happening here is that these tests are trying to test the implementation
-of an `isPrime()` function, but there is no implementation yet of this function.
-You are going to implement this function.  Lets start by creating a stub for the
-function, so that we can get our code to compile and run correctly.
+What is happening here is that these tests are trying to test the
+implementation of an `isPrime()` function, but there is no
+implementation yet of this function.  You are going to implement this
+function.  Lets start by creating a stub for the function, so that we
+can get our code to compile and run correctly.
 
 We need to put a function prototype for this function into the
 `primes.hpp` header file.  A function prototype can be used in a
@@ -421,28 +359,24 @@ build your program again.
 ```
 $ make all 
 
-g++ -Wall -Werror -pedantic -g -Iinclude -c src/test-primes.cpp -o obj/test-primes.o
-/usr/bin/ld: obj/test-primes.o: in function `____C_A_T_C_H____T_E_S_T____0()':
-/home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:33: 
-    undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:34: 
-    undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:35: 
-    undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:38: 
-    undefined reference to `isPrime(int)'
-/usr/bin/ld: /home/dash/repos/cosc2336-github-classroom/assg00/src/test-primes.cpp:41: 
-    undefined reference to `isPrime(int)'
-/usr/bin/ld: obj/test-primes.o:/home/dash/repos/cosc2336-github-classroom/assg/src/test-primes.cpp:42: 
-    more undefined references to `isPrime(int)' follow
+++ -Wall -Werror -pedantic -g -Iinclude -c src/assg00-tests.cpp -o obj/assg00-tests.o
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g  obj/assg00-tests.o  obj/primes.o obj/catch2-main.o  -o test
+/usr/bin/ld: obj/assg00-tests.o: in function `C_A_T_C_H_T_E_S_T_0()':
+/workspaces/assg00-tamuc-student-team/src/assg00-tests.cpp:41: undefined reference to `isPrime(int)'
+/usr/bin/ld: /workspaces/assg00-tamuc-student-team/src/assg00-tests.cpp:42: undefined reference to `isPrime(int)'
+/usr/bin/ld: /workspaces/assg00-tamuc-student-team/src/assg00-tests.cpp:43: undefined reference to `isPrime(int)'
+/usr/bin/ld: /workspaces/assg00-tamuc-student-team/src/assg00-tests.cpp:46: undefined reference to `isPrime(int)'
+/usr/bin/ld: /workspaces/assg00-tamuc-student-team/src/assg00-tests.cpp:49: undefined reference to `isPrime(int)'
+/usr/bin/ld: obj/assg00-tests.o:/workspaces/assg00-tamuc-student-team/src/assg00-tests.cpp:50: more undefined references to `isPrime(int)' follow
 collect2: error: ld returned 1 exit status
-make: *** [include/Makefile.inc:42: test] Error 1
+make: *** [include/Makefile.inc:54: test] Error 1
 ```
 
 The output of the compilation is a bit complex here, but you should take a moment to look at it.
-The `test-primes.cpp` file actually compiles successfully now.  This is because it includes
+The `assg00-tests.cpp` file actually compiles successfully now.  This is because it includes
 the signature you added from `primes.hpp` header file, and so the `c++` compiler
-knows how to compile the test into an object file named `test-primes.o`. 
+knows how to compile the test into an object file named `assg00-tests.o`. 
 The compilation then continues.  It tries to build the test executable, but we get a series of
 errors here when it tries to link together the test executable.  All of the errors are because
 of an `undefined reference to isPrime(int)`.  The function signature you added
@@ -480,7 +414,7 @@ Make sure that you add in the implementation directly under the documentation fo
 `isPrime()` function, which should already be available to you in the starting code for
 this practice assignment.
 
-Notice that this is not really a correct implementation.  It is a stub function,
+Notice that this is not really a correct implementation.  It is a placeholder function,
 it always just answers `true` whenever it is asked if any `value` is a prime
 number or not.  It is ignoring the input parameter, so it is not really testing
 if the `value` is prime or not.
@@ -590,7 +524,7 @@ make: *** [include/Makefile.inc:60: tests] Error 13
 
 Here you should see, that while the tests run, many of the tests
 are failing, as can be seen from the output of running the tests.
-If you look closely back at the `test-primes.cpp` file, you will
+If you look closely back at the `assg00-tests.cpp` file, you will
 see that not all of the tests are failing.  It actually passes the
 first 3 tests that check if 1, 2 and 3 are prime.  This should make
 sense, because your stub function always returns `true`, so if the
@@ -613,7 +547,9 @@ the check-mark to commit these changes to your current `main` branch.
 Try and always use good commit messages.  Read the following:
 [Git Commit Messages Guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
 
-Here is an example following the guidelines for this commit
+Here is an example following the guidelines for this commit.  Notice good
+commit messages have a title line, followed by a blank line, followed by
+1 or more sentences of description.
 
 ```
 Task 1 isPrime() compiling and running tests
@@ -712,12 +648,11 @@ all of the tests now pass.
 
 ```
 $ make
-mkdir -p obj
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/test-primes.cpp -o obj/test-primes.o
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
-g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/main.cpp -o obj/main.o
-g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg00-tests.cpp -o obj/assg00-tests.o
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g  obj/assg00-tests.o  obj/primes.o obj/catch2-main.o  -o test
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg00-sim.cpp -o obj/assg00-sim.o
+g++ -Wall -Werror -pedantic -g  obj/assg00-sim.o  obj/primes.o  -o sim
 
 $ make tests
 ././test --use-colour yes
@@ -745,7 +680,7 @@ the Task 2 issue in your GitHub account before beginning work on
 Task 2.  There is still a second function that you need to write and
 pass the tests for in order to complete the assignment.  As with the
 first task, start by uncommenting the second `TEST_CASE` set of tests
-in `test-primes.cpp`.  You should try building your code now.  You
+in `assg00-tests.cpp`.  You should try building your code now.  You
 will of course see that the build is now failing, because the tests
 want to run a function named `findPrimes()` but you haven't written it
 yet.

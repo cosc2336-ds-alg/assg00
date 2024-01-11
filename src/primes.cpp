@@ -34,7 +34,7 @@ using namespace std;
  * @returns bool Returns true if the value is prime, false if it
  *   is not.
  */
-// write your implementation if isPrime() function here
+// write your implementation of the isPrime() function here
 
 /** @brief Find primes in range
  *
