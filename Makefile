@@ -21,6 +21,6 @@ assg_doc  = ${PROJECT_NAME}.pdf
 include include/Makefile.inc
 
 # assignment header file specific dependencies
-${OBJ_DIR}/primes.o: ${INC_DIR}/primes.hpp
-${OBJ_DIR}/${PROJECT_NAME}-tests.o: ${INC_DIR}/primes.hpp
-${OBJ_DIR}/${PROJECT_NAME}-sim.o: ${INC_DIR}/primes.hpp
+${OBJ_DIR}/primes.o: ${SRC_DIR}/primes.cpp ${INC_DIR}/primes.hpp
+${OBJ_DIR}/${PROJECT_NAME}-tests.o: ${SRC_DIR}/${PROJECT_NAME}-tests.cpp ${INC_DIR}/primes.hpp
+${OBJ_DIR}/${PROJECT_NAME}-sim.o: ${SRC_DIR}/${PROJECT_NAME}-sim.cpp ${INC_DIR}/primes.hpp
