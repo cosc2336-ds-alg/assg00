@@ -1,8 +1,8 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.238.0/containers/cpp/.devcontainer/base.Dockerfile
+# See here for image contents: https://github.com/devcontainers/images/tree/main/src/cpp
 
 # [Choice] Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon): debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
-ARG VARIANT="ubuntu-20.04"
-FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-${VARIANT}
+ARG VARIANT="ubuntu-24.04"
+FROM mcr.microsoft.com/devcontainers/cpp:${VARIANT}
 
 # [Optional] Install CMake version different from what base image has already installed. 
 # CMake reinstall choices: none, 3.21.5, 3.22.2, or versions from https://cmake.org/download/
