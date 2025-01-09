@@ -1,6 +1,6 @@
 ---
 title: 'Assignment Example: Example Workflow for Class Assignments to Setup Git, GitHub and VSCode Dev Containers'
-author: 'COSC 2336 430: Data Structures and Algorithms'
+author: 'COSC 2336: Data Structures and Algorithms'
 date: ''
 ---
 
@@ -8,9 +8,9 @@ date: ''
 - Setup and explore your VSCode Dev Container Environment
 - Learn some basic Git commands and workflow
 - Practice submitting an example class project
-- Make sure class GitHub accounts are configured for git pushes and pull requests.
+- Make sure class GitHub accounts are configured for git push and pull requests.
 - Make sure VSCode development IDE is configured properly for C++ projects
-- Learn about unit testing framework and test runner used for class assignments.
+- Learn about the unit testing framework and test runner used for class assignments.
 
 # Description
 
@@ -22,11 +22,11 @@ There are several basic concepts and tools you need to learn about in this
 practice, so that you are ready for the actual class assignments.  The tools
 we will be using for this class include:
 
-- Visual Code studio IDE for code editing, building and debugging
-- Basic Git usage, and using GitHub repositories for committing work and pull requests.
-- Unit test frameworks, we use the Catch2 unit test framework for our C++ coding
+- [Visual Studio Code (VSCode)](https://code.visualstudio.com/) IDE for code editing, building and debugging
+- Basic [Git](https://git-scm.com/doc) usage, and using [GitHub](http://github.com/) repositories for committing work and pull requests.
+- Unit test frameworks, we use the [Catch2](https://github.com/catchorg/Catch2) unit test framework for our C++ coding
   assignments.
-- Using Dev Containers in VSCode to have a common set of development tools.
+- Using [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) in VSCode to have a common set of development tools.
   
 This practice assignment will walk you through the basic procedures and
 setup of assignments for our class assignments.  Videos of the instructor
@@ -36,7 +36,8 @@ the tools we will be using.
 
 # Pre-Setup and Configuration
 
-You need to complete the steps in the DevelopmentEnvironmentSetup.md file
+You need to complete the steps in the 
+[Development Environment Configuration](https://github.com/csci430-os/vscode-remote-devcontainer/tree/main)
 before continuing with this practice assignment.  All assignments assume
 that you have the following configurations completed in order to work on the
 assignments.
@@ -66,7 +67,7 @@ assignment template.  Once you accept the assignment, you will have
 a GitHub repository that you can clone and push your work back into
 for grading.
 
-By following assignment invitation link, you will be taken to GitHub,
+By following the assignment invitation link, you will be taken to GitHub Classrooms,
 where you will be asked to accept the assignment.  If this is the
 first assignment you are accepting, you need to associate your GitHub
 account with the class ID that identifies you as a member of this
@@ -87,23 +88,27 @@ repository to a VSCode Dev Container.
 
 Startup the VSCode IDE, and open up the "Remote Explorer" on the
 left hand side.  The "Remote Explorer" section will not be present
-unless you have correctly installed the Remote Containers extension
-in your VSCode IDE, as described in the more detailed environment
-detailed instructions.
+unless you have correctly added the
+[Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+extension in your VSCode IDE.
 
 In the "Remote Explorer", if you hover over the CONTAINERS item, there
-will be a "+" mark allowing yout to create a new container.  Select
+will be a "+" mark allowing you to create a new container.  Select
 the "+" to create a new container, then select "Clone Repository
 in Container Volume...".  This will allow you to clone your 
 GitHub repository into a suitable Dev Container with all 
 development tools set up that you need for the assignments.
-You should copy and paste the repository ssh url when asked here for
-the repository url, so that you can have write access to push
+You should copy and paste the repository ssh URL when asked here for
+the repository URL, so that you can have write access to push
 back your work to your GitHub repository.
 
-TODO: determine the best procedure to clone repository into a remote
-container.
-
+**NOTE**: There are several ways to clone your repository and get it
+running in a container.  You can also use the "Source Control"
+section in VSCode to clone the repository URL normally and open the 
+folder.  If you have your Docker setup correctly, you should be automatically
+prompted to reopen the folder inside of a container.  Make sure you
+check the bottom left status in VSCode and that you are running in
+a "Dev Container: C++" when doing your assignments.
 
 ## Check that Initial Project Files Compile and Run Tests
 
@@ -112,27 +117,32 @@ starting code is compiling and running.  From your VSCode Dev Container, open
 the `assg00` folder if it is not currently open.  Then perform a `make
 clean / make all / make tests`.  You can use VSCode command palette to
 perform the `Run Task` command, and select these tasks from the
-command palette.  Keyboard shortcuts should already be assigned to
+command palette. You can also open up a terminal and type in
+the commands to clean and make you code by hand.
+
+Keyboard shortcuts may already be assigned to
 these common tasks, so you could do them as follows
 
 - `ctrl-shift-c` make clean
 ```
 > Executing task: make clean <
 
-rm -rf ./test ./debug *.o *.gch
+rm -rf ./test ./sim *.o *.gch
 rm -rf output html latex
-rm -rf obj
+rm -rf  obj/assg00-tests.o  obj/primes.o  obj/assg00-sim.o  obj/primes.o
 ```
+
 - `ctrl-shift-b`  make build
 ```
 > Executing task: make all <
 
 mkdir -p obj
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/test-primes.cpp -o obj/test-primes.o
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
-g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/main.cpp -o obj/main.o
-g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg00-tests.cpp -o obj/assg00-tests.o
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/catch2-main.cpp -o obj/catch2-main.o
+g++ -Wall -Werror -pedantic -g  obj/assg00-tests.o  obj/primes.o obj/catch2-main.o  -o test
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg00-sim.cpp -o obj/assg00-sim.o
+g++ -Wall -Werror -pedantic -g  obj/assg00-sim.o  obj/primes.o  -o sim
 ```
 - `ctrl-shift-t` make unit-tests
 ```
@@ -143,27 +153,33 @@ g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
 No tests ran
 ```
 
+If the keyboard shortcuts do not work, then you need to copy the definitions
+found in the `.vscode/keybindings.json` file into your global Keyboard Settings
+json file.
+
 The project should compile cleanly with no errors when you do the
 `make build`, and the tests should run from `make tests`, though all
-tests are currently undefined, so there are not actual tests available
-to run yet.
+tests are currently undefined in this practice assignment, so there
+are not actual tests available to run yet.  If the project fails to
+build before you start doing the assignment, let the instructor know
+immediately.
 
 
 ## Practice Assignment Example Ready 
 
 At this point you should be ready to begin working on the practice 'Assignment Example'.
-For all of the assignments for this class you will follow the same steps
-in the previous section(s) when you get started on a new assignment.
+For all of the assignments for this class you will follow these same steps
+when you get started on a new assignment.
 
 1. Accept the assignment invitation from GitHub classroom to create
-   the assignment repository in your GitHub acount.
+   the assignment repository in your GitHub account.
 2. Clone the repository to a VSCode Dev Container using the SSH URL of your
    GitHub repository for the assignment.
 3. Confirm that the project builds and runs, though no tests may be be
    defined or run initially.  If the project does not build on the first
    checkout, please inform the instructor.
 5. You should create the issue for Task 1 and/or for all tasks for the assignment
-   now before beginning the first task.  On your GitHub account, go to issues,
+   now before beginning the first task.  On your GitHub account, go to Issues,
    and create them from the issue templates for the assignment. Also make sure
    you link the issue(s) with the `Feedback` pull request.
    
@@ -200,19 +216,21 @@ framework.  The GitHub repository has been set up to perform a build
 and test action automatically whenever you push a commit of your code
 to the GitHub repository.  This commit task will run the same tests
 that you have in your local repository, and that you need to get
-working for the assignment.
+working for the assignment.  You should check the `Feedback` `Pull Request`
+to ensure all commits you push are added to the pull request and that
+the automated build and tests are running successfully on GitHub.
 
 For this practice assignment, you will need to add codes into two
-files, named `primes.hpp` and `primes.cpp`.  In addition, the unit
+files, named `include/primes.hpp` and `src/primes.cpp`.  In addition, the unit
 tests you need to pass for the practice assignment are given to you in
-`assg00-tests.cpp`.  Some or all of these tests will be commented out
-to begin with for the assignments.  You will uncomment the tests and
+`src/assg00-tests.cpp`.  Some or all of these tests will be undefined
+to begin with for the assignments.  You will `#define` the tests and
 write the code to get the tests to pass as the main work for each
 assignment.
 
 The code you are initially given should always be compilable and runnable.
 You should check this out, and try to make sure that for every small change
-or addition you make, that you code still compiles and runs the given tests.
+or addition you make, that your code still compiles and runs the given tests.
 This is known as incremental development.
 
 **NOTE**: Practice incremental program development.  Always make sure
@@ -224,8 +242,6 @@ project that is currently not running and compiling.  Do not write
 more than 2 or 3 lines of code at a time without trying to compile and
 run your project.
 
-
-
 # Assignment Tasks
 
 Now we will walk through the typical tasks and workflow you will
@@ -235,13 +251,14 @@ tasks in the given order here, and do not move on to the next task
 until you have successfully completed the current one.  You will be
 required to, at a minimum, push 1 commit for each defined task of the
 assignment to your GitHub classroom repository.
+
 You can certainly make more commits, and are most likely to need to do
 so as you will inevitably make some mistakes and push incomplete work
 or work with problems.  This is fine, and actually normal and expected
 for people doing actual work on projects using a source code revision
 control system like git.  But at a minimum, you must make at least 1
-commit for each task, and that commit must implement the task fully
-and pass the tests for that task.
+commit for each task, and that commit must implement the task
+and pass the tests for that task before moving on to the next one.
 
 **NOTE**: All assignments for this class, when you accept them from
 GitHub classroom, will create a `Feedback` pull request for you.  This
@@ -252,12 +269,10 @@ will automatically gather all commits to the `main` branch.  You can
 communicate with me, and I will give back comments on the `Feedback`
 pull request of your progress for the assignment.  You should not
 close or merge the `Feedback` pull request.  When I am satisfied you
-have 100% completed an assignment, I will merge and close the
-`Feedback` pull request for you.  This is an indication that you have
-completed all parts of an assignment.  If the `Feedback` pull request
-is still open, it means I have not yet accepted it fully, and there
-may be comments or requirements from me for additional tasks or items
-you need to fix before your work is considered 100% complete.
+have 100% completed an assignment, I may merge and close the
+`Feedback` pull request for you.  I will also provide code reviews
+and assignment evaluations in the `Feedback` pull request for your
+assignment.
 
 For this practice assignment, the goal is to create two functions
 named `isPrime()` and `findPrimes()`.  Then finally these functions
@@ -271,8 +286,7 @@ GitHub repository.  Got to your GitHub repository and create a
 new issue.  You should find that a template is available for each
 task for the assignment.  You should create the Task 1 issue now, and
 if you prefer,  you can go ahead and create the issues for all of the
-tasks before you begin working on them at this point after 
-copying your sandbox repository.
+tasks before you begin working on them.
 
 When you have the issue for Task 1 created, go to the `Feedback` pull
 request and link this issue with the `Feedback` pull request.  The issue
@@ -299,6 +313,7 @@ the line like this to define the task 1 tests:
 
 ```
 #define task1
+#undef task2
 ```
 
 After defining the task1 test case, perform a `make
@@ -426,10 +441,10 @@ stub function and function prototype.
 ```
 $ make all
 
-g++ -Wall -Werror -pedantic -g -Iinclude -I../assg-base-0.3/include -c src/primes.cpp -o obj/primes.o
-g++ -Wall -Werror -pedantic -g  obj/test-primes.o  obj/primes.o ../assg-base-0.3/obj/catch2-main.o -o test
-g++ -Wall -Werror -pedantic -g  obj/main.o  obj/primes.o -o debug
-
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/primes.cpp -o obj/primes.o
+g++ -Wall -Werror -pedantic -g  obj/assg00-tests.o  obj/primes.o obj/catch2-main.o  -o test
+g++ -Wall -Werror -pedantic -g -Iinclude -c src/assg00-sim.cpp -o obj/assg00-sim.o
+g++ -Wall -Werror -pedantic -g  obj/assg00-sim.o  obj/primes.o  -o sim
 ```
 
 Always make sure your program is in a compilable state.  If it can compile the `test` executable,
@@ -530,18 +545,25 @@ first 3 tests that check if 1, 2 and 3 are prime.  This should make
 sense, because your stub function always returns `true`, so if the
 number being tested just happens to be prime, then the test passes.
 
+**NOTE**: The C++ TestMate extension should be installed into your Dev Container
+automatically when you create it.  You can use the "Testing" section
+in VSCode to run the tests using the test runner GUI, instead of
+invoking from the command line.  The tests should show up now at this
+point in the tests runner, once a successful `test` executable has been
+created and is available to run.
+
 ### Commit Changes to Feedback Pull Request
 
 Part of the workflow of assignments is that you should commit your
 work once you get tasks (or milestones within tasks) completed and
-working.  Uncommenting the first set of unit tests, and getting the
+working.  Defining the first set of unit tests, and getting the
 code to compile and run the tests is a good milestone for this
 practice assignment.  Lets add these changes to the `Feedback` pull
 request by making a commit, and pushing the commit to your repository.
 
-Open the Git section in VSCode.  You will see that the 3 files you modified
-are now listed as changed in your repository.  Perform a `stage all changes`
-to add all of these 3 file changes to the commit you are creating.  Once the
+Open the "Source Control" section in VSCode.  You will see that the 3 files you modified
+are now listed as "Changes" in your repository.  Perform a `Stage All Changes`
+to add all 3 of these file changes to the commit you are creating.  Once the
 files are staged for the commit, write a commit message and then select
 the check-mark to commit these changes to your current `main` branch.
 Try and always use good commit messages.  Read the following:
@@ -562,17 +584,17 @@ the answer to be true for a given value.
 
 Once your changes are committed, a new commit version is created.
 However, this commit is only local to your DevBox.  You need to push
-your commit in the `main` branch to your remote repository to your
-remote repository, so that the instructor can see and evaluate your
-work.
+your commit in the `main` branch to your remote repository, so that
+the instructor can see and evaluate your work.
 
-At the bottom of your VSCode window is some status information about
+At the bottom left of your VSCode window is some status information about
 your repository.  Next to the `main` branch indication, should be
 a indicator of your repository push/pull status.  It will be
 indicating that you now have 1 commit locally on the `main` branch
 that is ahead of the remote repository.  If you push this indicator,
 your commit will be pushed to the `main` branch on your GitHub
-repository.
+repository.  (Or you can also go ahead an push the "Sync Changes" button
+in the "Source Control" section).
 
 Once your have pushed your commit, this commit should appear in the
 `main` branch of your repository.  Also, it should automatically
@@ -639,7 +661,7 @@ bool isPrime(int value)
 
 This function performs a brute force search of all possible numbers that might
 be divisors of the `value`.  A number is prime if it has no divisors other than 1
-and the `value`.  So if any other `divisor` is found, the function can return
+and itself.  So if any other `divisor` is found, the function can return
 an answer of `false` indicating that the number is not prime.  But if we check
 all divisors and don't find any, then the answer is `true`, the number is prime.
 
@@ -661,7 +683,7 @@ All tests passed (24 assertions in 1 test case)
 
 ```
 
-You should find that all of the (uncommented) tests of `isPrime()` now
+You should find that all of the tests of `isPrime()` now
 pass.  If they do, create a new commit of your changes (should only be
 changes in the `primes.cpp` file this time), and push your changes.
 Make sure you provide an appropriate commit message.
@@ -670,24 +692,26 @@ Go and look at your pull request again on GitHub.  You will see that
 this second commit has been added to the pull request.  Also you
 should notice that the test status is still failing.  If you look at
 the status details, you should be able to discover why.  While your
-commit should build, and should pass the `test isPrime` tests, it will
+commit should build, and should pass the `test isPrime` tests
+(receiving a 75/100 from the autograder now), it will
 not be passing the `test findPrimes` tests yet.
 
 ## Task 2: Implement findPrimes() function
 
 Lets complete this assignment.  If you didn't do it already, create
-the Task 2 issue in your GitHub account before beginning work on
-Task 2.  There is still a second function that you need to write and
-pass the tests for in order to complete the assignment.  As with the
-first task, start by uncommenting the second `TEST_CASE` set of tests
-in `assg00-tests.cpp`.  You should try building your code now.  You
-will of course see that the build is now failing, because the tests
-want to run a function named `findPrimes()` but you haven't written it
-yet.
+the Task 2 issue in your GitHub account before beginning work on Task
+2 and associate it with your `Feedback` pull request.
+
+There is still a second function that you need to write and pass the
+tests in order to complete the assignment.  As with the first
+task, start by `#define` the second `task2` set of tests in
+`assg00-tests.cpp`.  You should try building your code now.  You will
+of course see that the build is now failing, because the tests want to
+run a function named `findPrimes()` but you haven't written it yet.
 
 As before, lets start by doing the minimal work to get the project
 back to a compilable state.  Add a function prototype for the function
-again into `primes.hpp` header file:
+into `primes.hpp` header file:
 
 ```
 int findPrimes(int start, int end, bool displayOnCout = true);
@@ -849,7 +873,7 @@ Once you add in the above function, try compiling and running your
 tests.  They should all be passing now for both test cases.  Since you
 are done with the assignment, it is usually a good idea to do one
 final build from scratch to be sure.  Try doing a `make clean`, and
-then rebuild and run the tests.  If all tests are uncommented, and all
+then rebuild and run the tests.  If all tests are defined, and all
 of them are passing, then you are in good shape at this point.
 
 To finish the assignment, you should create a final commit of these
@@ -860,26 +884,27 @@ good idea then to leave a final comment in your pull request stating
 that you think you are finished and ready to have the work evaluated.
 The instructor may give feedback during your development, or at the
 end.  You should notice that your final commit is now passing all of
-the build tasks on GitHub.  This is a good sign for the assignment.
-Though passing all of the tests may not mean you have completed all of
-the work successfully yet.  For example, at times you may need to
-implement some functions or code in a specific way, and if you do not
-do this, even though you may be passing the tests, you may not be
-given full credit unless you correct your implementation to follow the
-instructions.  Likewise, you may be asked to follow particular style
-or formatting guidelines of your code.  For example, you will be
-required to provide function documentation for all of your functions,
-like the comments before the 2 functions you were given here.
+the build tasks on GitHub in the `Feedback` `Pull Request`.  This is a
+good sign for the assignment.  Though passing all of the tests may not
+mean you have completed all of the work successfully yet.  For
+example, at times you may need to implement some functions or code in
+a specific way, and if you do not do this, even though you may be
+passing the tests, you may not be given full credit unless you correct
+your implementation to follow the instructions.  Likewise, you may be
+asked to follow particular style or formatting guidelines of your
+code.  For example, you will be required to provide function
+documentation for all of your functions, like the comments before the
+2 functions you were given here.
 
 
 # Assignment Submission
 
 For this class, the submission process is to correctly create a pull
-request with changes committed and pushed to your copied repository
+request with changes committed and pushed to your classroom repository
 for grading and evaluation.  For the assignments, you may not be able
 to complete all tasks and have all of the tests successfully
 finishing.  This is OK.  However, you should endeavor to have as many
-of the tasks completed before the deadline for the assignment.  Also,
+of the tasks completed before the deadline as possible.  Also,
 try and make sure that you only push commits that are building and
 able to run the tests.  In this practice assignment, 50 points out of
 100 were assigned to correctly building.  In general, a commit will
@@ -893,9 +918,9 @@ from that point.
 
 At some point you will be required to follow class style and
 formatting guidelines.  The VSCode environment has been set up to try
-and format your code for some of these guidelines automatically to
-conform to class style requirements.  But not all style issues can be
-enforced by the IDE/Editor.  The instructor may give you feedback in
+and format your code for some of these requirements automatically to
+conform to class style.  But not all style issues can be enforced by
+the IDE/Editor style checker.  The instructor may give you feedback in
 your pull request comments and/or create issues for you for the
 assignment that you need to address and fix.  You should address those
 if asked, and push a new commit that fixes the issue (or ask for
